@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "81738297890",
+    "project_id": "pulperia-maritza",
+    "storage_bucket": "pulperia-maritza.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:81738297890:android:0f5b17e6cc96bdb554907b",
+        "android_client_info": {
+          "package_name": "com.example.pulperiamaritza"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "81738297890-4r9v3l7krlk13nlsuqaogis19c683ugb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pulperiamaritza",
+            "certificate_hash": "b062701aa59c67fa713c12f94219024110f503e7"
+          }
+        },
+        {
+          "client_id": "81738297890-upkl7a5kp0sv7v6db0054t12joh86hg5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2FfObY_8k3Ywi_43PKrszO4658GMU4UE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "81738297890-upkl7a5kp0sv7v6db0054t12joh86hg5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
