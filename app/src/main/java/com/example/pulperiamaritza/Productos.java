@@ -21,7 +21,7 @@ public class Productos extends AppCompatActivity implements SearchView.OnQueryTe
     private RecyclerView rvProductos;
     private ProductosAdapter adapter;
     public List<ProductoItemsModel> items;
-    private ProductosTodos itemsProductos = new ProductosTodos(this);
+    private ProductosTodos todos = new ProductosTodos(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +38,9 @@ public class Productos extends AppCompatActivity implements SearchView.OnQueryTe
 
     private void inicializarValores() {
         LinearLayoutManager manager = new LinearLayoutManager(this); //Creamos un adaptador para que el RecyclerView se vea en forma de tarjetas
-
         rvProductos.setLayoutManager(manager); //Asignamos el adaptador
 
-        items = itemsProductos.obtenerProductosBDD(); //Obtenemos e igualamos los items a la lista "items" llamando al método "obtenerProductosBDD" de la clase "ProductosTodos"
+        items = todos.obtenerProductosBDD(); //Obtenemos e igualamos los items a la lista "items" llamando al método "obtenerProductosBDD" de la clase "ProductosTodos"
         adapter = new ProductosAdapter(items); //Creamos un objeto de tipo ProductosAdapter en el cual enviamos la lista "items", y dicho objeto lo igualamos al otro objeto de tipo ProductosAdapter llamado "adapter"
 
         adapter.setOnClickListener(new View.OnClickListener() { //Usando el objeto de "adapter" llamamos al método "setOnClickListener" de la clase ProductosAdapter

@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.example.pulperiamaritza.Modelos.CarritoItemsModel;
 import com.example.pulperiamaritza.Modelos.CatPrvItemsModel;
+import com.example.pulperiamaritza.Modelos.HistVentasItemsModel;
 import com.example.pulperiamaritza.Modelos.ProductoItemsModel;
 import com.example.pulperiamaritza.R;
 
@@ -120,7 +121,7 @@ public class ProductosTodos extends AppCompatActivity {
         //Lácteos
         itemsList.add(new ProductoItemsModel("Leche Leyde 900 ml", "Lácteos", "1 Litro", "0", "31.00", "0", R.mipmap.lac_litroleche_leyde, "Leyde"));
         itemsList.add(new ProductoItemsModel("Leche Sula 900 ml", "Lácteos", "1 Litro", "0", "31.00", "0", R.mipmap.lac_litroleche_sula, "Sula"));
-        itemsList.add(new ProductoItemsModel("Leyde Leyde 473 ml", "Lácteos", "1 Medio", "0", "18.00", "0", R.mipmap.lac_medioleche_leyde2, "Leyde"));
+        itemsList.add(new ProductoItemsModel("Leche Leyde 473 ml", "Lácteos", "1 Medio", "0", "18.00", "0", R.mipmap.lac_medioleche_leyde2, "Leyde"));
         itemsList.add(new ProductoItemsModel("Leche Sula 450 ml", "Lácteos", "1 Medio", "0", "18.00", "0", R.mipmap.lac_medioleche_sula, "Sula"));
         itemsList.add(new ProductoItemsModel("Huevos", "Lácteos", "1 U", "1 Cartón", "6.00", "150.00", R.mipmap.lac_huevos, "Quesería"));
         itemsList.add(new ProductoItemsModel("Mantequilla", "Lácteos", "1 Libra", "1 Media", "58.00", "29.00", R.mipmap.lac_mediamantequilla, "Quesería"));
@@ -578,8 +579,8 @@ public class ProductosTodos extends AppCompatActivity {
         int id = baseDatos.delete("CarritoTemporal", null, null); //Eliminamos todas las filas de la tabla, por eso en "whereClause" ponemos null ya que no tendremos una condición WHERE
         baseDatos.close(); //Cerramos la conexión
 
-        if (id > 0) //Si "id" es mayor a 0, quiere decir que "baseDatos.delete" si afectó (o eliminó) una o varias filas
-            Toast.makeText(context, "CARRITO ELIMINADO", Toast.LENGTH_SHORT).show(); //Enviamos un mensaje que se eliminaron todas las filas del carrito
+        /*if (id > 0) //Si "id" es mayor a 0, quiere decir que "baseDatos.delete" si afectó (o eliminó) una o varias filas
+            Toast.makeText(context, "CARRITO ELIMINADO", Toast.LENGTH_SHORT).show(); //Enviamos un mensaje que se eliminaron todas las filas del carrito*/
     }
 
     public int insertarVenta(String fecha, int bolsas) {
@@ -778,19 +779,18 @@ public class ProductosTodos extends AppCompatActivity {
     }
 
     public List<CarritoItemsModel> obtenerCarrito() {
-        //Creamos una lista de tipo "CarritoItemsModel" para guardar los datos del Carrito
-        List<CarritoItemsModel> itemsCarrito = new ArrayList<>();
+        List<CarritoItemsModel> itemsCarrito = new ArrayList<>(); //Creamos una lista de tipo "CarritoItemsModel" para guardar los datos del Carrito
 
         //Creamos un objeto de la clase AdminSQLiteOpen y le mandamos los parámetros al constructor de dicha clase. En este caso, como no estamos en una clase que deriva de un activity o un fragment, el contexto lo recuperamos como parámetro y lo mandamos desde una clase que si sea derivada de una activity o fragment
         AdminSQLiteOpen admin = new AdminSQLiteOpen(context, "PulperiaMaritza", null, 1);
         SQLiteDatabase baseDatos = admin.getWritableDatabase();
 
         try {
-            Cursor fila = baseDatos.rawQuery("SELECT CrtNombre, CrtTipo, CrtCantidad, CrtPrecio, CrtTotal, CrtImagen FROM CarritoTemporal", null);
+            Cursor fila = baseDatos.rawQuery("SELECT CrtNombre, CrtTipo, CrtCantidad, CrtPrecio, CrtTotal, CrtImagen FROM CarritoTemporal", null); //Creamos un cursor que guardará los datos que retorne la consulta SELECT
 
             if (fila.moveToFirst()) { //Utilizamos el "if (fila.moveToFirst())" para mover el cursor "fila" a la primera fila de registros que encontró en la sentencia SELECT
                 do { //Hacemos un do-while que va a recorrer todas las filas de datos que haya encontrado el cursor "fila"
-                    itemsCarrito.add(new CarritoItemsModel(fila.getString(0), fila.getString(1), fila.getString(2), fila.getString(3), fila.getString(4), fila.getInt(5)));
+                    itemsCarrito.add(new CarritoItemsModel(fila.getString(0), fila.getString(1), fila.getString(2), fila.getString(3), fila.getString(4), fila.getInt(5))); //Guardamos cada fila de datos del cursor en la lista "itemsCarrito"
                 } while (fila.moveToNext());
             }
         }
@@ -803,7 +803,35 @@ public class ProductosTodos extends AppCompatActivity {
             }
         }
 
-        return itemsCarrito;
+        return itemsCarrito; //Retornamos la lista "itemsCarrito"
+    }
+
+    public List<HistVentasItemsModel> obtenerVentas() {
+        List<HistVentasItemsModel> itemsVentas = new ArrayList<>(); //Creamos una lista de tipo "HistVentasItemsModel" para guardar los datos de las ventas
+
+        //Creamos un objeto de la clase AdminSQLiteOpen y le mandamos los parámetros al constructor de dicha clase. En este caso, como no estamos en una clase que deriva de un activity o un fragment, el contexto lo recuperamos como parámetro y lo mandamos desde una clase que si sea derivada de una activity o fragment
+        AdminSQLiteOpen admin = new AdminSQLiteOpen(context, "PulperiaMaritza", null, 1);
+        SQLiteDatabase baseDatos = admin.getWritableDatabase();
+
+        try {
+            Cursor fila = baseDatos.rawQuery("SELECT A.VntID, A.VntFecha, SUM(B.PrdPrecio * B.PrdCantidad) + A.VntBolsas [Total] FROM VentasEncabezado A INNER JOIN VentasDetalle B ON A.VntID = B.VntID GROUP BY A.VntID, A.VntFecha", null); //Creamos un cursor que guardará los datos que retorne la consulta SELECT
+
+            if (fila.moveToFirst()) { //Utilizamos el "if (fila.moveToFirst())" para mover el cursor "fila" a la primera fila de registros que encontró en la sentencia SELECT
+                do { //Hacemos un do-while que va a recorrer todas las filas de datos que haya encontrado el cursor "fila"
+                    itemsVentas.add(new HistVentasItemsModel(String.valueOf(fila.getInt(0)), fila.getString(1), String.format("%.2f", fila.getFloat(2)))); //Guardamos cada fila de datos del cursor en la lista "itemsVentas"
+                } while (fila.moveToNext());
+            }
+        }
+        catch (Exception e) {
+            Toast.makeText(context, "ERROR AL OBTENER EL HISTORIAL DE VENTAS", Toast.LENGTH_SHORT).show();
+        }
+        finally {
+            if (baseDatos != null) { //Verificamos si "baseDatos" no es null para poder cerrar la conexión
+                baseDatos.close();
+            }
+        }
+
+        return itemsVentas; //Retornamos la lista "itemsVentas"
     }
 
     //Método para extraer los códigos de las categorías y proveedores

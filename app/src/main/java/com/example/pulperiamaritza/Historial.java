@@ -3,6 +3,7 @@ package com.example.pulperiamaritza;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -49,5 +50,10 @@ public class Historial extends AppCompatActivity {
         btnVentas.setTextColor(getResources().getColor(R.color.blue_principal));
         lnaCompras.setVisibility(View.INVISIBLE);
         lnaVentas.setVisibility(View.VISIBLE);
+    }
+
+    public void carritoVenta(View view) {
+        Intent pagina = new Intent(this, CarritoVenta.class);
+        startActivity(pagina);
     }
 }
