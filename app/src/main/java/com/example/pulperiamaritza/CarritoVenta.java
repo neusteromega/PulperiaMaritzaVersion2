@@ -115,11 +115,20 @@ public class CarritoVenta extends AppCompatActivity {
     }
 
     public void confirmarVenta(View view) {
+        String bolsasTxt = lblBolsas.getText().toString(); //Guardamos la cantidad de bolsas que se encuentra en el textView "lblBolsas" en una variable String
+        int bolsasNum = Integer.parseInt(bolsasTxt); //Convertimos "bolsasTxt" a int, y guardamos el entero en "bolsasNum"
+
         //Guardar la fecha de hoy
         Calendar calendar = Calendar.getInstance(); //Obtener la fecha actual
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy"); //Crear el formato de fecha que deseas
         String fechaActual = dateFormat.format(calendar.getTime()); //Convertir la fecha a un String
-        Toast.makeText(this, "Fecha de Hoy: "+ fechaActual, Toast.LENGTH_SHORT).show();
+
+        int conf = todos.insertarVenta(fechaActual, bolsasNum); //Usando el objeto "todos" de la clase "ProductosTodos", llamamos al método "insertarVenta" y le mandamos la fecha de hoy (fechaActual) y la cantidad de bolsas (bolsasNum) como parámetros
+
+        if (conf == 1) { //Si "conf" es uno, significa que si se realizó la confirmación de la venta...
+            todos.eliminarCarritoCompleto(); //..., por ello, llamamos al método "eliminarCarritoCompleto()" que nos va a borrar los datos de la tabla "CarritoTemporal" y así poder limpiar el carrito de venta
+            this.recreate(); //Llamamos al método "recreate()" que recrear el Activity y poder ver el carrito vacío
+        }
     }
 
     public void menuPrincipal(View view) {

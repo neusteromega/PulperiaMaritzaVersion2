@@ -21,13 +21,6 @@ public class ProductosTodos extends AppCompatActivity {
 
     public Context context;
 
-    /*public static String nombreProducto;
-    public static String tipoProducto;
-    public static String cantidadProducto;
-    public static String precioProducto;
-    public static String totalProducto;
-    public static int imagenProducto;*/
-
     public ProductosTodos(Context context) {
         this.context = context;
     }
@@ -436,9 +429,9 @@ public class ProductosTodos extends AppCompatActivity {
     //Método que inserta datos en las tablas de Categorias, Proveedores y Productos en la base de datos
     public void insertarDatos(String tabla) {
         //Creamos 3 listas para almacenar los datos de las Categorías, Proveedores y Productos
-        List<CatPrvItemsModel> itemsCategorias = new ArrayList<>();
-        List<CatPrvItemsModel> itemsProveedores = new ArrayList<>();
-        List<ProductoItemsModel> itemsProductos = new ArrayList<>();
+        List<CatPrvItemsModel> itemsCategorias;
+        List<CatPrvItemsModel> itemsProveedores;
+        List<ProductoItemsModel> itemsProductos;
 
         //Llenamos las 3 listas llamando a sus respectivos métodos que retornan una Lista ya con los datos
         itemsProductos = obtenerProductos();
@@ -500,8 +493,6 @@ public class ProductosTodos extends AppCompatActivity {
 
                     baseDatos.insert("Productos", null, prd);
                 }
-
-                //Toast.makeText(context, "ITEMS: " + j, Toast.LENGTH_SHORT).show();
 
                 baseDatos.close();
                 break;
@@ -579,14 +570,28 @@ public class ProductosTodos extends AppCompatActivity {
             Toast.makeText(context, "PRODUCTO ELIMINADO DEL CARRITO", Toast.LENGTH_SHORT).show();
     }
 
-    public void insertarVenta(String fecha, int bolsas) {
+    public void eliminarCarritoCompleto() {
+        //Creamos un objeto de la clase AdminSQLiteOpen y le mandamos los parámetros al constructor de dicha clase. En este caso, como no estamos en una clase que deriva de un activity o un fragment, el contexto lo recuperamos como parámetro y lo mandamos desde una clase que si sea derivada de una activity o fragment
+        AdminSQLiteOpen admin = new AdminSQLiteOpen(context, "PulperiaMaritza", null, 1);
+        SQLiteDatabase baseDatos = admin.getWritableDatabase();
+
+        int id = baseDatos.delete("CarritoTemporal", null, null); //Eliminamos todas las filas de la tabla, por eso en "whereClause" ponemos null ya que no tendremos una condición WHERE
+        baseDatos.close(); //Cerramos la conexión
+
+        if (id > 0) //Si "id" es mayor a 0, quiere decir que "baseDatos.delete" si afectó (o eliminó) una o varias filas
+            Toast.makeText(context, "CARRITO ELIMINADO", Toast.LENGTH_SHORT).show(); //Enviamos un mensaje que se eliminaron todas las filas del carrito
+    }
+
+    public int insertarVenta(String fecha, int bolsas) {
         //Creamos un objeto de la clase AdminSQLiteOpen y le mandamos los parámetros al constructor de dicha clase. En este caso, como no estamos en una clase que deriva de un activity o un fragment, el contexto lo recuperamos como parámetro y lo mandamos desde una clase que si sea derivada de una activity o fragment
         AdminSQLiteOpen admin = new AdminSQLiteOpen(context, "PulperiaMaritza", null, 1);
         SQLiteDatabase baseDatos = admin.getWritableDatabase();
         List<CarritoItemsModel> itemsCarrito = obtenerCarrito(); //Guardamos los productos del Carrito en la lista "itemsCarrito" de tipo CarritoItemsModel; esto lo hacemos llamando al método "obtenerCarrito()"
+        List<Integer> codigosProductos = new ArrayList<Integer>();
 
         try {
             int id = 0;
+            long verificar2 = 0;
             //Creamos dos contenedores que almacenarán los datos a insertar en las tablas "VentasEncabezado" y "VentasDetalle" de la base de datos
             ContentValues encabezado = new ContentValues();
             ContentValues detalle = new ContentValues();
@@ -605,20 +610,28 @@ public class ProductosTodos extends AppCompatActivity {
                 id = codigo.getInt(0);
 
             for (int i = 0; i < itemsCarrito.size(); i++) {
+                codigosProductos.add(codigoProducto(itemsCarrito.get(i).getNombre()));
+            }
+
+            for (int i = 0; i < itemsCarrito.size(); i++) {
                 //Guardamos los datos en cada campo de la tabla "VentasDetalle" de la base de datos
                 detalle.put("VntID", id); //Guardamos el ID de la última inserción en la tabla "VentasEncabezado", dicho ID está guardado en la variable "id"
-                detalle.put("PrdID", codigoProducto(itemsCarrito.get(i).getNombre())); //CAMBIAR POR SKU!!!!! | Como el ID del producto no está en la lista "itemsCarrito", llamamos al método "codigoProducto()" y le mandamos el nombre del producto como parámetro
+                detalle.put("PrdID", codigosProductos.get(i)); //CAMBIAR POR SKU!!!!! | Como el ID del producto no está en la lista "itemsCarrito", llamamos al método "codigoProducto()" y le mandamos el nombre del producto como parámetro
                 detalle.put("PrdPrecio", Double.parseDouble(itemsCarrito.get(i).getPrecio())); //Convertimos a Double porque en la BDD el campo es de tipo REAL
                 detalle.put("PrdCantidad", Double.parseDouble(itemsCarrito.get(i).getCantidad())); //Convertimos a Double porque en la BDD el campo es de tipo REAL
                 detalle.put("PrdTipo", itemsCarrito.get(i).getTipo());
+
+                verificar2 = baseDatos.insert("VentasDetalle", null, detalle);
             }
 
-            long verificar2 = baseDatos.insert("VentasDetalle", null, detalle);
-
-            if (verificar1 > 0 && verificar2 > 0) //Si ambos "verificar" son mayores a 0, quiere decir que ambas inserciones a las tablas "VentasEncabezado" y "VentasDetalle" se realizaron correctamente
+            if (verificar1 > 0 && verificar2 > 0) { //Si ambos "verificar" son mayores a 0, quiere decir que ambas inserciones a las tablas "VentasEncabezado" y "VentasDetalle" se realizaron correctamente
                 Toast.makeText(context, "VENTA CONFIRMADA", Toast.LENGTH_SHORT).show();
-            else //Si una o las dos inserciones no se realizaron bien (uno o ambos "verificar" no son mayores a 0), entonces se mostrará un mensaje de error
+                return 1; //Retornamos 1 si se completó la confirmación
+            }
+            else { //Si una o las dos inserciones no se realizaron bien (uno o ambos "verificar" no son mayores a 0), entonces se mostrará un mensaje de error
                 Toast.makeText(context, "ERROR AL CONFIRMAR LA VENTA", Toast.LENGTH_SHORT).show();
+                return 0; //Retornamos 0 si hubo un error
+            }
         }
         catch (Exception e) {
             Toast.makeText(context, "ERROR AL CONFIRMAR LA VENTA", Toast.LENGTH_SHORT).show();
@@ -628,6 +641,8 @@ public class ProductosTodos extends AppCompatActivity {
                 baseDatos.close();
             }
         }
+
+        return -1; //Retornamos -1 por cualquier cosa
     }
 
     //Método para obtener todos los productos de la base de datos
@@ -844,6 +859,6 @@ public class ProductosTodos extends AppCompatActivity {
             }
         }
 
-        return 0; //Retornamos 0 si lo anterior da error
+        return -1; //Retornamos -1 si lo anterior da error
     }
 }
