@@ -434,6 +434,7 @@ public class ProductosTodos extends AppCompatActivity {
         List<CatPrvItemsModel> itemsCategorias;
         List<CatPrvItemsModel> itemsProveedores;
         List<ProductoItemsModel> itemsProductos;
+
         List<Integer> codCategorias = new ArrayList<Integer>();
         List<Integer> codProveedores = new ArrayList<Integer>();
 
