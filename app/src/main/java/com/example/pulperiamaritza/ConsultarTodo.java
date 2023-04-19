@@ -52,6 +52,11 @@ public class ConsultarTodo extends AppCompatActivity {
         startActivity(pagina);
     }
 
+    public void menuPrincipal(View view) {
+        Intent pagina = new Intent(this, MenuPrincipal.class);
+        startActivity(pagina);
+    }
+
     /*
     public void insertarFirebase() {
         FirebaseDatabase db = FirebaseDatabase.getInstance();

@@ -48,6 +48,11 @@ public class MenuPrincipal extends AppCompatActivity {
         startActivity(pagina);
     }
 
+    public void historial(View view) {
+        Intent pagina = new Intent(this, Historial.class);
+        startActivity(pagina);
+    }
+
     public void facturar(View view) {
         try {
             //Hacemos esto para abrir el escaneo

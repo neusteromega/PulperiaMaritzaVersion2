@@ -90,6 +90,16 @@ public class ProductosDetalle extends AppCompatActivity implements TextWatcher {
         startActivity(pagina);
     }
 
+    public void historial(View view) {
+        Intent pagina = new Intent(this, Historial.class);
+        startActivity(pagina);
+    }
+
+    public void menuPrincipal(View view) {
+        Intent pagina = new Intent(this, MenuPrincipal.class);
+        startActivity(pagina);
+    }
+
     public void cambiarSwitch(View view) {
         if (view.getId() == R.id.swCambiar) {
             //Validamos que el switch esté activado

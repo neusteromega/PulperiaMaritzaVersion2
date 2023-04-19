@@ -384,6 +384,7 @@ public class ProductosTodos extends AppCompatActivity {
         itemsList.add(new CatPrvItemsModel("Energizantes", R.mipmap.cat_energizantes));
         itemsList.add(new CatPrvItemsModel("Medicamentos", R.mipmap.cat_medicamentos));
         itemsList.add(new CatPrvItemsModel("Higiene", R.mipmap.cat_higiene));
+        itemsList.add(new CatPrvItemsModel("Limpieza", R.mipmap.cat_limpieza));
         itemsList.add(new CatPrvItemsModel("Verduras", R.mipmap.cat_verduras));
         itemsList.add(new CatPrvItemsModel("Ferretería", R.mipmap.cat_ferreteria));
         itemsList.add(new CatPrvItemsModel("Utiles Escolares", R.mipmap.cat_utilesescolares));
@@ -433,11 +434,18 @@ public class ProductosTodos extends AppCompatActivity {
         List<CatPrvItemsModel> itemsCategorias;
         List<CatPrvItemsModel> itemsProveedores;
         List<ProductoItemsModel> itemsProductos;
+        List<Integer> codCategorias = new ArrayList<Integer>();
+        List<Integer> codProveedores = new ArrayList<Integer>();
 
         //Llenamos las 3 listas llamando a sus respectivos métodos que retornan una Lista ya con los datos
         itemsProductos = obtenerProductos();
         itemsCategorias = obtenerCategorias();
         itemsProveedores = obtenerProveedores();
+
+        for (int i = 0; i < itemsProductos.size(); i++) {
+            codCategorias.add(codigoCatPrv(itemsProductos.get(i).getCategoria(), 1));
+            codProveedores.add(codigoCatPrv(itemsProductos.get(i).getProveedor(), 2));
+        }
 
         //Creamos un objeto de la clase AdminSQLiteOpen y le mandamos los parámetros al constructor de dicha clase. En este caso, como no estamos en una clase que deriva de un activity o un fragment, el contexto lo recuperamos como parámetro y lo mandamos desde una clase que si sea derivada de una activity o fragment
         AdminSQLiteOpen admin = new AdminSQLiteOpen(context, "PulperiaMaritza", null, 1);
@@ -480,14 +488,13 @@ public class ProductosTodos extends AppCompatActivity {
                 for (int i = 0; i < itemsProductos.size(); i++) {
                     ContentValues prd = new ContentValues();
 
-                    //Aquí es lo mismo que en el case "Categorias", con la única diferencia que los campos "CatID" y "PrvID" son foráneos, y para extraer sus respectivos códigos, hacemos uso de la función "codigoCatPrv"
                     prd.put("PrdNombre", itemsProductos.get(i).getNombre());
                     prd.put("PrdTipo1", itemsProductos.get(i).getTipo1());
                     prd.put("PrdTipo2", itemsProductos.get(i).getTipo2());
                     prd.put("PrdPrecio1", itemsProductos.get(i).getPrecio1());
                     prd.put("PrdPrecio2", itemsProductos.get(i).getPrecio2());
-                    prd.put("CatID", codigoCatPrv(itemsProductos.get(i).getCategoria(), 1));
-                    prd.put("PrvID", codigoCatPrv(itemsProductos.get(i).getProveedor(), 2));
+                    prd.put("CatID", codCategorias.get(i));
+                    prd.put("PrvID", codProveedores.get(i));
                     prd.put("PrdImagen", itemsProductos.get(i).getImagen());
 
                     //j++;
