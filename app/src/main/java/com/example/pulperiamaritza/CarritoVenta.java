@@ -105,6 +105,7 @@ public class CarritoVenta extends AppCompatActivity {
         cantidadTxt = String.valueOf(cantidadNum);
 
         lblBolsas.setText(cantidadTxt);
+
         totalBolsas(cantidadNum);
         totalCarrito();
     }
