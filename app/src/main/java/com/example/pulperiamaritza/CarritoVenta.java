@@ -112,6 +112,7 @@ public class CarritoVenta extends AppCompatActivity {
 
     public void totalBolsas(int cantidad) {
         double bolsasTotal = cantidad;
+
         lblBolsasTotal.setText("L." + String.format("%.2f", bolsasTotal));
     }
 
