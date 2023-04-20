@@ -317,6 +317,7 @@ public class ProductosTodos extends AppCompatActivity {
         itemsList.add(new ProductoItemsModel("Sal Andrews", "Medicamentos", "1 U", "0", "6.00", "0", R.mipmap.med_salandrews, "Bodega"));
         itemsList.add(new ProductoItemsModel("Sudagrip Cápsulas", "Medicamentos", "1 U", "0", "6.00", "0", R.mipmap.med_sudagripcapsula, "Bodega"));
         itemsList.add(new ProductoItemsModel("Sudagrip Té", "Medicamentos", "1 U", "0", "15.00", "0", R.mipmap.med_sudagripte, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Suero Oralectril", "Medicamentos", "1 U", "0", "38.00", "0", R.mipmap.med_suero_oralectrilbote, "Bodega"));
         itemsList.add(new ProductoItemsModel("Tabcin Gripe y Tos Cápsulas", "Medicamentos", "1 U", "0", "17.00", "0", R.mipmap.med_tabcinmoradacapsula, "Bodega"));
         itemsList.add(new ProductoItemsModel("Tabcin Gripe y Tos Efervescente", "Medicamentos", "1 U", "0", "6.00", "0", R.mipmap.med_tabcinmoradaefervescente, "Bodega"));
         itemsList.add(new ProductoItemsModel("Pastillas Tap-On", "Medicamentos", "1 U", "0", "9.00", "0", R.mipmap.med_tapon, "Bodega"));
