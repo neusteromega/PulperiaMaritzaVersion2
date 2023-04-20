@@ -520,7 +520,7 @@
                                 android:layout_height="100dp"
                                 android:layout_marginTop="8dp"
                                 android:layout_marginBottom="5dp"
-                                app:srcCompat="@mipmap/hig_jabonvenza" />
+                                app:srcCompat="@mipmap/hig_jabon_venza" />
 
                             <TextView
                                 android:id="@+id/lblJabonVenzaConsultar"
