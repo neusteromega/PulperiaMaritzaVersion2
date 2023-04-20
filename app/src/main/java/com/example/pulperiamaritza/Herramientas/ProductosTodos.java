@@ -385,6 +385,7 @@ public class ProductosTodos extends AppCompatActivity {
         itemsList.add(new CatPrvItemsModel("Medicamentos", R.mipmap.cat_medicamentos));
         itemsList.add(new CatPrvItemsModel("Higiene", R.mipmap.cat_higiene));
         itemsList.add(new CatPrvItemsModel("Limpieza", R.mipmap.cat_limpieza));
+        itemsList.add(new CatPrvItemsModel("Cigarros", R.mipmap.cat_cigarros));
         itemsList.add(new CatPrvItemsModel("Verduras", R.mipmap.cat_verduras));
         itemsList.add(new CatPrvItemsModel("Ferretería", R.mipmap.cat_ferreteria));
         itemsList.add(new CatPrvItemsModel("Utiles Escolares", R.mipmap.cat_utilesescolares));
