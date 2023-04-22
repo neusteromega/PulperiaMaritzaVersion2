@@ -72,4 +72,9 @@ public class Proveedores extends AppCompatActivity implements SearchView.OnQuery
         Intent pagina = new Intent(this, CarritoVenta.class);
         startActivity(pagina);
     }
+
+    public void historial(View view) {
+        Intent pagina = new Intent(this, Historial.class);
+        startActivity(pagina);
+    }
 }

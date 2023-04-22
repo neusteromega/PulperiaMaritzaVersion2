@@ -90,4 +90,9 @@ public class ProductosPorCatPrv extends AppCompatActivity implements SearchView.
         adapter.filtrado(s);
         return false;
     }
+
+    public void historial(View view) {
+        Intent pagina = new Intent(this, Historial.class);
+        startActivity(pagina);
+    }
 }

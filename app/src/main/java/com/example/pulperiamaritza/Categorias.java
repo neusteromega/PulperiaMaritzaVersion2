@@ -74,6 +74,11 @@ public class Categorias extends AppCompatActivity implements SearchView.OnQueryT
         startActivity(pagina);
     }
 
+    public void historial(View view) {
+        Intent pagina = new Intent(this, Historial.class);
+        startActivity(pagina);
+    }
+
     /*public class CustomAdapter extends BaseAdapter{
         private List<CategoriaItemsModel> itemsModelList;
         private List<CategoriaItemsModel> itemsModelListFiltered;
