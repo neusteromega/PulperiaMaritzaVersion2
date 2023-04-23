@@ -261,7 +261,7 @@ public class ProductosTodos extends AppCompatActivity {
         itemsList.add(new ProductoItemsModel("Bom Bom", "0", "Dulces", "1 U", "0", "2.00", "0", R.mipmap.dul_bonbon_bombombum, "Bodega"));
         itemsList.add(new ProductoItemsModel("Paleta de Corazón", "0", "Dulces", "1 U", "0", "2.00", "0", R.mipmap.dul_paletacorazon_tipitin, "Bodega"));
         itemsList.add(new ProductoItemsModel("Paleta Cervecita", "0", "Dulces", "1 U", "0", "2.00", "0", R.mipmap.dul_paletacervecita, "Bodega"));
-        itemsList.add(new ProductoItemsModel("Pastillitas", "0", "Dulces", "1 U", "0", "3.00", "0", R.mipmap.dul_pastillitas_fruta, "Diana"));
+        itemsList.add(new ProductoItemsModel("Pastillitas de Fruta", "0", "Dulces", "1 U", "0", "3.00", "0", R.mipmap.dul_pastillitas_fruta, "Diana"));
         itemsList.add(new ProductoItemsModel("Cereal Choco Blast", "0", "Dulces", "1 U", "0", "7.00", "0", R.mipmap.dul_cereal_chocoblast, "Gamesa"));
         itemsList.add(new ProductoItemsModel("Cereal Fruty Ohs", "0", "Dulces", "1 U", "0", "7.00", "0", R.mipmap.dul_cereal_frutyohs, "Gamesa"));
         itemsList.add(new ProductoItemsModel("Cereal Marshmallow Stars", "0", "Dulces", "1 U", "0", "7.00", "0", R.mipmap.dul_cereal_marshmallowstars, "Gamesa"));
@@ -934,7 +934,7 @@ public class ProductosTodos extends AppCompatActivity {
 
         try {
             //Creamos un cursor llamado "id", que almacena el resultado que retorne la siguiente consulta SELECT
-            Cursor id = baseDatos.rawQuery("SELECT PrdID FROM Productos WHERE PrdNombre = '" + nombre + "'", null);
+            Cursor id = baseDatos.rawQuery("SELECT PrdID FROM Productos WHERE PrdNombre1 = '" + nombre + "' OR PrdNombre2 = '" + nombre + "'", null);
 
             if (id.moveToFirst()) //Utilizamos el "if (id.moveToFirst())" para mover el cursor "id" a la primera fila de registros que encontró en la sentencia SELECT
                 return id.getInt(0); //Si la condición del if encontró un primer registro, entonces retornamos dicho registro con "return id.getInt(0)" (0 es la posición del primer registro encontrado)
