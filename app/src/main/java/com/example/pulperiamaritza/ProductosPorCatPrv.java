@@ -66,7 +66,8 @@ public class ProductosPorCatPrv extends AppCompatActivity implements SearchView.
                 intent.putExtra("productoImagen", items.get(rvProductos.getChildAdapterPosition(view)).getImagen());
                 intent.putExtra("productoPrecio", items.get(rvProductos.getChildAdapterPosition(view)).getPrecio1());
                 intent.putExtra("productoPrecio2", items.get(rvProductos.getChildAdapterPosition(view)).getPrecio2());
-                intent.putExtra("productoNombre", items.get(rvProductos.getChildAdapterPosition(view)).getNombre());
+                intent.putExtra("productoNombre", items.get(rvProductos.getChildAdapterPosition(view)).getNombre1());
+                intent.putExtra("productoNombre2", items.get(rvProductos.getChildAdapterPosition(view)).getNombre2());
                 intent.putExtra("productoCategoria", items.get(rvProductos.getChildAdapterPosition(view)).getCategoria());
                 intent.putExtra("productoProveedor", items.get(rvProductos.getChildAdapterPosition(view)).getProveedor());
                 intent.putExtra("productoCantidad", items.get(rvProductos.getChildAdapterPosition(view)).getTipo1());

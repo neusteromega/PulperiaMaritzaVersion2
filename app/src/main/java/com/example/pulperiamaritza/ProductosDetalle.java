@@ -102,10 +102,12 @@ public class ProductosDetalle extends AppCompatActivity implements TextWatcher {
 
     public void cambiarSwitch(View view) {
         if (view.getId() == R.id.swCambiar) {
-            //Validamos que el switch esté activado
-            if (swCambiar.isChecked()) {
+            if (swCambiar.isChecked()) { //Validamos que el switch esté activado
                 Intent intent = getIntent();
                 lblPrecio.setText("L." + intent.getStringExtra("productoPrecio2"));
+
+                if (!intent.getStringExtra("productoNombre2").contentEquals("0")) //Si el segundo nombre del producto no es "0", entonces que me asigne dicho nombre en el TextView "lblNombreProducto"
+                    lblNombreProducto.setText(intent.getStringExtra("productoNombre2"));
 
                 if (intent.getStringExtra("productoCantidad2").contentEquals("1 U")) {
                     lblTipoProducto.setText("Unidad");
@@ -123,6 +125,7 @@ public class ProductosDetalle extends AppCompatActivity implements TextWatcher {
             else { //Aquí el switch no está activado
                 Intent intent = getIntent();
                 lblPrecio.setText("L." + intent.getStringExtra("productoPrecio"));
+                lblNombreProducto.setText(intent.getStringExtra("productoNombre"));
 
                 if (intent.getStringExtra("productoCantidad").contentEquals("1 U")) {
                     lblTipoProducto.setText("Unidad");

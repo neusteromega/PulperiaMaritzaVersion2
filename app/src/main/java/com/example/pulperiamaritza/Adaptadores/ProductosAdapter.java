@@ -42,7 +42,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Recy
 
         //Haciendo uso del objeto "holder", asignamos los textos a las diferentes variables que se encuentran en la clase estática "RecyclerHolder"
         holder.imgProducto.setImageResource(item.getImagen());
-        holder.tvProducto.setText(item.getNombre());
+        holder.tvProducto.setText(item.getNombre1());
         holder.tvCategoria.setText(item.getCategoria());
         holder.tvCantidad.setText(item.getTipo1());
         holder.tvPrecio.setText("L."+ item.getPrecio1());
@@ -57,7 +57,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Recy
         }
         else {
             List<ProductoItemsModel> coleccion = items.stream()
-                    .filter(i -> i.getNombre().toLowerCase().contains(txtBuscar.toLowerCase()))
+                    .filter(i -> i.getNombre1().toLowerCase().contains(txtBuscar.toLowerCase()))
                     .collect(Collectors.toList());
 
             items.clear();

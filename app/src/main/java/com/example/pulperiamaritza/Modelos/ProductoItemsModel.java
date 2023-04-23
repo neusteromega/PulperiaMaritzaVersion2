@@ -1,7 +1,8 @@
 package com.example.pulperiamaritza.Modelos;
 
 public class ProductoItemsModel {
-    private String nombre;
+    private String nombre1;
+    private String nombre2;
     private String categoria;
     private String tipo1;
     private String tipo2;
@@ -10,8 +11,9 @@ public class ProductoItemsModel {
     private int imagen;
     private String proveedor;
 
-    public ProductoItemsModel(String nombre, String categoria, String tipo1, String tipo2, String precio1, String precio2, int imagen, String proveedor) {
-        this.nombre = nombre;
+    public ProductoItemsModel(String nombre1, String nombre2, String categoria, String tipo1, String tipo2, String precio1, String precio2, int imagen, String proveedor) {
+        this.nombre1 = nombre1;
+        this.nombre2 = nombre2;
         this.categoria = categoria;
         this.tipo1 = tipo1;
         this.tipo2 = tipo2;
@@ -21,12 +23,20 @@ public class ProductoItemsModel {
         this.proveedor = proveedor;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombre1() {
+        return nombre1;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre1(String nombre1) {
+        this.nombre1 = nombre1;
+    }
+
+    public String getNombre2() {
+        return nombre2;
+    }
+
+    public void setNombre2(String nombre2) {
+        this.nombre2 = nombre2;
     }
 
     public String getCategoria() {
