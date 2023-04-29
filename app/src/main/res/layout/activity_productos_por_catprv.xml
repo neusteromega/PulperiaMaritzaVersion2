@@ -110,6 +110,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
+                    android:onClick="menuPrincipal"
                     android:orientation="vertical">
 
                     <ImageView
@@ -193,6 +194,7 @@
             android:backgroundTint="#14213D"
             android:contentDescription="@string/descripcion"
             android:elevation="3dp"
+            android:onClick="carritoVenta"
             android:src="@mipmap/icono_carrito"
             app:backgroundTint="#FFFFFF"
             app:layout_anchor="@id/app_bar"

@@ -10,8 +10,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pulperiamaritza.Herramientas.ProductosTodos;
+import com.example.pulperiamaritza.Modelos.ProductoItemsModel;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+
+import java.util.List;
 
 public class MenuPrincipal extends AppCompatActivity {
 
@@ -25,12 +28,12 @@ public class MenuPrincipal extends AppCompatActivity {
 
         scan = (TextView) findViewById(R.id.barras);
 
-        //Guardamos el número que retorne el método "verificarDatos" en las siguientes variables int
-        int prd = todos.verificarDatos("Productos");
+        //Obtenemos la lista de los productos en la BDD
+        List<ProductoItemsModel> items = todos.obtenerProductosBDD();
 
-        //Mandamos a llamar el método "insertarDatos" para cada tabla, solamente si la tabla no tiene registros
-        if (prd == 0)
-            todos.insertarDatos("Productos");
+        //Mandamos a llamar el método "insertarDatos" solamente si el tamaño de la lista "items" es de 204, si es mayor, significa que ya se insertó la segunda porción de productos
+        if (items.size() == 204)
+            todos.insertarDatos("Productos", 2); //Le mandamos el nombre de la tabla "Productos" y el número 2 para indicar que se debe insertar la segunda lista de productos
     }
 
     public void consultarProductos(View view) {

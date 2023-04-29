@@ -43,7 +43,7 @@ public class ProductosTodos extends AppCompatActivity {
         }
     }
 
-    public List<ProductoItemsModel> obtenerProductos() {
+    public List<ProductoItemsModel> obtenerProductos1() {
         List<ProductoItemsModel> itemsList = new ArrayList<>();
 
         //Refrescos
@@ -115,7 +115,7 @@ public class ProductosTodos extends AppCompatActivity {
         itemsList.add(new ProductoItemsModel("Jugo de Zanahoria Sula 473 ml", "0", "Jugos", "1 U", "0", "22.00", "0", R.mipmap.jug_jugozanahoria_sula, "Sula"));
         itemsList.add(new ProductoItemsModel("Jugo Montana 355 ml Bolsa", "0", "Jugos", "1 U", "0", "7.00", "0", R.mipmap.jug_montana_355ml, "Pepsi"));
         itemsList.add(new ProductoItemsModel("Juicy de Naranja 1.7 lts", "0", "Jugos", "1 U", "0", "32.00", "0", R.mipmap.jug_juicy, "Leyde"));
-        itemsList.add(new ProductoItemsModel("Cifrut 1.5 lts", "0", "Jugos", "1 U", "0", "23.00", "0", R.mipmap.jug_cifrut15lts, "AJE"));
+        itemsList.add(new ProductoItemsModel("Cifrut 1.3 lts", "0", "Jugos", "1 U", "0", "23.00", "0", R.mipmap.jug_cifrut15lts, "AJE"));
         itemsList.add(new ProductoItemsModel("Cifrut 3 lts", "0", "Jugos", "1 U", "0", "48.00", "0", R.mipmap.jug_cifrut3lts, "AJE"));
 
         //Lácteos
@@ -173,7 +173,7 @@ public class ProductosTodos extends AppCompatActivity {
 
         //Churros
         itemsList.add(new ProductoItemsModel("Alboroto", "0", "Churros", "1 U", "0", "3.00", "0", R.mipmap.chu_alboroto, "Diana"));
-        itemsList.add(new ProductoItemsModel("Anillitos Barbacoa", "0", "Churros", "1 U", "1 U", "3.00", "28.00", R.mipmap.chu_anillitosbbq, "Dinant"));
+        itemsList.add(new ProductoItemsModel("Anillitos Barbacoa Pequeño", "Anillitos Barbacoa Grande", "Churros", "1 U", "1 U", "3.00", "28.00", R.mipmap.chu_anillitosbbq, "Dinant"));
         itemsList.add(new ProductoItemsModel("Buenachos Queso", "0", "Churros", "1 U", "0", "4.00", "0", R.mipmap.chu_buenachosnaranja, "Boca Deli"));
         itemsList.add(new ProductoItemsModel("Buenachos Picante", "0", "Churros", "1 U", "0", "4.00", "0", R.mipmap.chu_buenachospicante, "Boca Deli"));
         itemsList.add(new ProductoItemsModel("Cappy Gorditos", "0", "Churros", "1 U", "0", "3.00", "0", R.mipmap.chu_cappygorditos, "Dinant"));
@@ -183,15 +183,15 @@ public class ProductosTodos extends AppCompatActivity {
         itemsList.add(new ProductoItemsModel("Centavitos", "0", "Churros", "1 U", "0", "3.00", "0", R.mipmap.chu_centavitos, "Diana"));
         itemsList.add(new ProductoItemsModel("Cheetos Azules", "0", "Churros", "1 U", "0", "7.00", "0", R.mipmap.chu_cheetosazules, "Frito Lay"));
         itemsList.add(new ProductoItemsModel("Cheetos Naranja", "0", "Churros", "1 U", "0", "7.00", "0", R.mipmap.chu_cheetosnaranja, "Frito Lay"));
-        itemsList.add(new ProductoItemsModel("Chicharrón Criollo", "0", "Churros", "1 U", "1 U", "10.00", "48.00", R.mipmap.chu_chicharronsinpicar, "Dinant"));
-        itemsList.add(new ProductoItemsModel("Chicharrón Picante", "0", "Churros", "1 U", "1 U", "10.00", "48.00", R.mipmap.chu_chicharronpicante, "Dinant"));
+        itemsList.add(new ProductoItemsModel("Chicharrón Criollo Pequeño", "Chicharrón Criollo Grande", "Churros", "1 U", "1 U", "10.00", "48.00", R.mipmap.chu_chicharronsinpicar, "Dinant"));
+        itemsList.add(new ProductoItemsModel("Chicharrón Picante Pequeño", "Chicharrón Picante Grande", "Churros", "1 U", "1 U", "10.00", "48.00", R.mipmap.chu_chicharronpicante, "Dinant"));
         itemsList.add(new ProductoItemsModel("Crujitos", "0", "Churros", "1 U", "0", "7.00", "0", R.mipmap.chu_crujitos, "Frito Lay"));
         itemsList.add(new ProductoItemsModel("Doraditas Twist", "0", "Churros", "1 U", "0", "4.00", "0", R.mipmap.chu_doraditasazul, "Frito Lay"));
         itemsList.add(new ProductoItemsModel("Doraditas Barbacoa", "0", "Churros", "1 U", "0", "4.00", "0", R.mipmap.chu_doraditasbbq, "Frito Lay"));
         itemsList.add(new ProductoItemsModel("Doraditas Limón", "0", "Churros", "1 U", "0", "4.00", "0", R.mipmap.chu_doraditaslimon, "Frito Lay"));
         itemsList.add(new ProductoItemsModel("Doraditas Queso", "0", "Churros", "1 U", "0", "4.00", "0", R.mipmap.chu_doraditasqueso, "Frito Lay"));
-        itemsList.add(new ProductoItemsModel("Doritos Picante", "0", "Churros", "1 U", "1 U", "7.00", "30.00", R.mipmap.chu_doritospicante, "Frito Lay"));
-        itemsList.add(new ProductoItemsModel("Doritos Queso", "0", "Churros", "1 U", "1 U", "7.00", "30.00", R.mipmap.chu_doritosqueso, "Frito Lay"));
+        itemsList.add(new ProductoItemsModel("Doritos Picante Pequeño", "Doritos Picante Grande", "Churros", "1 U", "1 U", "7.00", "30.00", R.mipmap.chu_doritospicante, "Frito Lay"));
+        itemsList.add(new ProductoItemsModel("Doritos Queso Pequeño", "Doritos Queso Grande", "Churros", "1 U", "1 U", "7.00", "30.00", R.mipmap.chu_doritosqueso, "Frito Lay"));
         itemsList.add(new ProductoItemsModel("Elotitos", "0", "Churros", "1 U", "0", "4.00", "0", R.mipmap.chu_elotitos, "Diana"));
         itemsList.add(new ProductoItemsModel("Frijolí", "0", "Churros", "1 U", "0", "4.00", "0", R.mipmap.chu_frijoli, "Boca Deli"));
         itemsList.add(new ProductoItemsModel("Fritos Antojitos", "0", "Churros", "1 U", "0", "7.00", "0", R.mipmap.chu_fritosantojitos, "Frito Lay"));
@@ -208,10 +208,10 @@ public class ProductosTodos extends AppCompatActivity {
         itemsList.add(new ProductoItemsModel("Poffets Queso", "0", "Churros", "1 U", "0", "30.00", "0", R.mipmap.chu_poffetsqueso, "Frito Lay"));
         itemsList.add(new ProductoItemsModel("Quesitrix Picante", "0", "Churros", "1 U", "0", "3.00", "0", R.mipmap.chu_quesitrixpicante, "Boca Deli"));
         itemsList.add(new ProductoItemsModel("Quesitrix Queso", "0", "Churros", "1 U", "0", "3.00", "0", R.mipmap.chu_quesitrixqueso, "Boca Deli"));
-        itemsList.add(new ProductoItemsModel("Ranchitas Barbacoa", "0", "Churros", "1 U", "1 U", "6.00", "30.00", R.mipmap.chu_ranchitasbbq, "Dinant"));
-        itemsList.add(new ProductoItemsModel("Ranchitas Picante", "0", "Churros", "1 U", "1 U", "6.00", "30.00", R.mipmap.chu_ranchitaspicante, "Dinant"));
-        itemsList.add(new ProductoItemsModel("Ranchitas Queso", "0", "Churros", "1 U", "1 U", "6.00", "30.00", R.mipmap.chu_ranchitasqueso, "Dinant"));
-        itemsList.add(new ProductoItemsModel("Ranchitas Naturales", "0", "Churros", "1 U", "1 U", "8.00", "44.00", R.mipmap.chu_ranchitasnaturales, "Dinant"));
+        itemsList.add(new ProductoItemsModel("Ranchitas Barbacoa Pequeña", "Ranchitas Barbacoa Grande", "Churros", "1 U", "1 U", "6.00", "30.00", R.mipmap.chu_ranchitasbbq, "Dinant"));
+        itemsList.add(new ProductoItemsModel("Ranchitas Picante Pequeña", "Ranchitas Picante Grande", "Churros", "1 U", "1 U", "6.00", "30.00", R.mipmap.chu_ranchitaspicante, "Dinant"));
+        itemsList.add(new ProductoItemsModel("Ranchitas Queso Pequeña", "Ranchitas Queso Grande", "Churros", "1 U", "1 U", "6.00", "30.00", R.mipmap.chu_ranchitasqueso, "Dinant"));
+        itemsList.add(new ProductoItemsModel("Ranchitas Naturales Pequeña", "Ranchitas Naturales Grande", "Churros", "1 U", "1 U", "8.00", "44.00", R.mipmap.chu_ranchitasnaturales, "Dinant"));
         itemsList.add(new ProductoItemsModel("Rica Sula", "0", "Churros", "1 U", "0", "7.00", "0", R.mipmap.chu_ricasula, "Rica Sula"));
         itemsList.add(new ProductoItemsModel("Taco 3 Quesos", "0", "Churros", "1 U", "0", "4.00", "0", R.mipmap.chu_tacoamarillo, "Dinant"));
         itemsList.add(new ProductoItemsModel("Taco Tornitos Queso", "0", "Churros", "1 U", "0", "4.00", "0", R.mipmap.chu_tacoazul, "Dinant"));
@@ -220,19 +220,19 @@ public class ProductosTodos extends AppCompatActivity {
         itemsList.add(new ProductoItemsModel("Taco Picante", "0", "Churros", "1 U", "0", "4.00", "0", R.mipmap.chu_tacopicante, "Dinant"));
         itemsList.add(new ProductoItemsModel("Taco Chile Toreado", "0", "Churros", "1 U", "0", "4.00", "0", R.mipmap.chu_tacoverdepicante, "Dinant"));
         itemsList.add(new ProductoItemsModel("Takis Fuego", "0", "Churros", "1 U", "0", "15.00", "0", R.mipmap.chu_takisfuego, "Bimbo"));
-        itemsList.add(new ProductoItemsModel("Taqueritos Picante", "0", "Churros", "1 U", "1 U", "6.00", "33.00", R.mipmap.chu_taqueritospicantes, "Dinant"));
-        itemsList.add(new ProductoItemsModel("Taqueritos Queso", "0", "Churros", "1 U", "0", "6.00", "0", R.mipmap.chu_taqueritosqueso, "Dinant"));
+        itemsList.add(new ProductoItemsModel("Taqueritos Picante Pequeño", "Taqueritos Picante Grande", "Churros", "1 U", "1 U", "6.00", "33.00", R.mipmap.chu_taqueritospicantes, "Dinant"));
+        itemsList.add(new ProductoItemsModel("Taqueritos Queso Pequeño", "Taqueritos Queso Grande", "Churros", "1 U", "1 U", "6.00", "33.00", R.mipmap.chu_taqueritosqueso, "Dinant"));
         itemsList.add(new ProductoItemsModel("Tortillita", "0", "Churros", "1 U", "0", "3.00", "0", R.mipmap.chu_tortillita, "Rica Sula"));
         itemsList.add(new ProductoItemsModel("Toztecas Picante", "0", "Churros", "1 U", "0", "4.00", "0", R.mipmap.chu_toztecaspicante, "Diana"));
         itemsList.add(new ProductoItemsModel("Trompetas de Pizza", "0", "Churros", "1 U", "0", "3.00", "0", R.mipmap.chu_trompetaspizza, "Boca Deli"));
         itemsList.add(new ProductoItemsModel("Yummipops Queso", "0", "Churros", "1 U", "0", "8.00", "0", R.mipmap.chu_yummipopsqueso, "Dinant"));
         itemsList.add(new ProductoItemsModel("Yummipops con Sal", "0", "Churros", "1 U", "0", "8.00", "0", R.mipmap.chu_yummipopssal, "Dinant"));
-        itemsList.add(new ProductoItemsModel("Yummix Tropical", "0", "Churros", "1 U", "1 U", "8.00", "42.00", R.mipmap.chu_yummixtropical, "Dinant"));
-        itemsList.add(new ProductoItemsModel("Yummix Picante", "0", "Churros", "1 U", "1 U", "8.00", "42.00", R.mipmap.chu_yummixpicante, "Dinant"));
-        itemsList.add(new ProductoItemsModel("Zambos con Chicharrón", "0", "Churros", "1 U", "1 U", "6.00", "38.00", R.mipmap.chu_zamboschicharron, "Dinant"));
-        itemsList.add(new ProductoItemsModel("Zambos Originales", "0", "Churros", "1 U", "1 U", "6.00", "38.00", R.mipmap.chu_zambosoriginales, "Dinant"));
-        itemsList.add(new ProductoItemsModel("Zambos Ceviche", "0", "Churros", "1 U", "1 U", "6.00", "38.00", R.mipmap.chu_zambosceviche, "Dinant"));
-        itemsList.add(new ProductoItemsModel("Zambos Picante", "0", "Churros", "1 U", "1 U", "6.00", "38.00", R.mipmap.chu_zambospicante, "Dinant"));
+        itemsList.add(new ProductoItemsModel("Yummix Tropical Pequeño", "Yummix Tropical Grande", "Churros", "1 U", "1 U", "8.00", "42.00", R.mipmap.chu_yummixtropical, "Dinant"));
+        itemsList.add(new ProductoItemsModel("Yummix Picante Pequeño", "Yummix Picante Grande", "Churros", "1 U", "1 U", "8.00", "42.00", R.mipmap.chu_yummixpicante, "Dinant"));
+        itemsList.add(new ProductoItemsModel("Zambos con Chicharrón Pequeño", "Zambos con Chicharrón Grande", "Churros", "1 U", "1 U", "6.00", "38.00", R.mipmap.chu_zamboschicharron, "Dinant"));
+        itemsList.add(new ProductoItemsModel("Zambos Originales Pequeño", "Zambos Originales Grande", "Churros", "1 U", "1 U", "6.00", "38.00", R.mipmap.chu_zambosoriginales, "Dinant"));
+        itemsList.add(new ProductoItemsModel("Zambos Ceviche Pequeño", "Zambos Ceviche Grande", "Churros", "1 U", "1 U", "6.00", "38.00", R.mipmap.chu_zambosceviche, "Dinant"));
+        itemsList.add(new ProductoItemsModel("Zambos Picante Pequeño", "Zambos Picante Grande", "Churros", "1 U", "1 U", "6.00", "38.00", R.mipmap.chu_zambospicante, "Dinant"));
         itemsList.add(new ProductoItemsModel("Yuquitas con Sal", "0", "Churros", "1 U", "0", "4.00", "0", R.mipmap.chu_zambosyuquitas, "Dinant"));
         itemsList.add(new ProductoItemsModel("Yuquitas Picante", "0", "Churros", "1 U", "0", "4.00", "0", R.mipmap.chu_zambosyuquitaspicantes, "Dinant"));
         itemsList.add(new ProductoItemsModel("Zibas Clásicas", "0", "Churros", "1 U", "0", "8.00", "0", R.mipmap.chu_zibasamarilla, "Dinant"));
@@ -245,7 +245,7 @@ public class ProductosTodos extends AppCompatActivity {
         itemsList.add(new ProductoItemsModel("Alka", "0", "Dulces", "1 U", "0", "1.00", "0", R.mipmap.dul_alka, "Bodega"));
         itemsList.add(new ProductoItemsModel("Chao", "0", "Dulces", "1 U", "0", "0.66", "0", R.mipmap.dul_confiteschao, "Bodega"));
         itemsList.add(new ProductoItemsModel("Barra de Snickers", "0", "Dulces", "1 U", "0", "25.00", "0", R.mipmap.dul_snickers_barra, "Bodega"));
-        itemsList.add(new ProductoItemsModel("Chocolate M&M", "0", "Dulces", "1 Paquete", "0", "28.00", "0", R.mipmap.dul_mm_chocolates, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Chocolate M&M", "0", "Dulces", "1 Bolsa", "0", "28.00", "0", R.mipmap.dul_mm_chocolates, "Bodega"));
         itemsList.add(new ProductoItemsModel("Chocolate Bon o Bon", "0", "Dulces", "1 U", "0", "6.00", "0", R.mipmap.dul_bonobon_chocolate, "Bodega"));
         itemsList.add(new ProductoItemsModel("Panditas Clásicos", "0", "Dulces", "1 U", "0", "23.00", "0", R.mipmap.dul_panditasclasicos, "Bimbo"));
         itemsList.add(new ProductoItemsModel("Bubbaloo", "0", "Dulces", "1 U", "0", "1.00", "0", R.mipmap.dul_bubbaloo, "Bodega"));
@@ -265,6 +265,44 @@ public class ProductosTodos extends AppCompatActivity {
         itemsList.add(new ProductoItemsModel("Cereal Choco Blast", "0", "Dulces", "1 U", "0", "7.00", "0", R.mipmap.dul_cereal_chocoblast, "Gamesa"));
         itemsList.add(new ProductoItemsModel("Cereal Fruty Ohs", "0", "Dulces", "1 U", "0", "7.00", "0", R.mipmap.dul_cereal_frutyohs, "Gamesa"));
         itemsList.add(new ProductoItemsModel("Cereal Marshmallow Stars", "0", "Dulces", "1 U", "0", "7.00", "0", R.mipmap.dul_cereal_marshmallowstars, "Gamesa"));
+
+        String productos[] = {"Salsina Naturas"};
+        String productos2[] = {"0"};
+        String categorias[] = {"Abarrotería"};
+        String cantidades[] = {"1 U"};
+        String cantidades2[] = {"0"};
+        String precios1[] = {"15.00"};
+        String precios2[] = {"0"};
+        int imagenes[] = {R.mipmap.aba_salsinanaturas};
+        String proveedores[] = {"Bodega"};
+
+        for(int i = 0; i < productos.length; i++) {
+            ProductoItemsModel itemsModel = new ProductoItemsModel(productos[i], productos2[i], categorias[i], cantidades[i], cantidades2[i], precios1[i], precios2[i], imagenes[i], proveedores[i]);
+            itemsList.add(itemsModel);
+        }
+
+        return itemsList;
+    }
+
+    public List<ProductoItemsModel> obtenerProductos2() {
+        List<ProductoItemsModel> itemsList = new ArrayList<>();
+
+        //Galletas
+        itemsList.add(new ProductoItemsModel("Galleta Arcoiris", "0", "Galletas", "1 U", "0", "16.00", "0", R.mipmap.gal_arcoiris, "Gamesa"));
+        itemsList.add(new ProductoItemsModel("Chokis Pequeña", "0", "Galletas", "1 U", "0", "7.00", "0", R.mipmap.gal_chokisclasica, "Gamesa"));
+        itemsList.add(new ProductoItemsModel("Chokis Grande", "0", "Galletas", "1 U", "0", "16.00", "0", R.mipmap.gal_chokisgrande, "Gamesa"));
+        itemsList.add(new ProductoItemsModel("Mini Chokis", "0", "Galletas", "1 U", "0", "14.00", "0", R.mipmap.gal_minichokis, "Gamesa"));
+        itemsList.add(new ProductoItemsModel("Club Social", "0", "Galletas", "1 U", "0", "6.00", "0", R.mipmap.gal_clubsocial, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Crackets", "0", "Galletas", "1 U", "0", "15.00", "0", R.mipmap.gal_crackets, "Gamesa"));
+        itemsList.add(new ProductoItemsModel("Florentinas", "0", "Galletas", "1 U", "0", "16.00", "0", R.mipmap.gal_florentinas, "Gamesa"));
+        itemsList.add(new ProductoItemsModel("Mamut Grande", "0", "Galletas", "1 U", "0", "7.00", "0", R.mipmap.gal_mamut, "Gamesa"));
+        itemsList.add(new ProductoItemsModel("Mini Mamut", "0", "Galletas", "1 U", "0", "4.00", "0", R.mipmap.gal_minimamut, "Gamesa"));
+        itemsList.add(new ProductoItemsModel("Galleta de Mantequilla", "0", "Galletas", "1 U", "0", "9.00", "0", R.mipmap.gal_mantequilla, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Galleta Oreo", "0", "Galletas", "1 U", "0", "10.00", "0", R.mipmap.gal_oreo, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Galleta Sorbete Pindi de Fresa", "Galleta Sorbete Pindi de Vainilla", "Galletas", "1 U", "1 U", "2.00", "2.00", R.mipmap.gal_pindi, "Boca Deli"));
+        itemsList.add(new ProductoItemsModel("Galleta Príncipe", "0", "Galletas", "1 U", "0", "19.00", "0", R.mipmap.gal_principe, "Bimbo"));
+        itemsList.add(new ProductoItemsModel("Galleta Quaker de Avena", "0", "Galletas", "1 U", "0", "16.00", "0", R.mipmap.gal_quaker, "Gamesa"));
+        itemsList.add(new ProductoItemsModel("Galleta Sponch", "0", "Galletas", "1 U", "0", "19.00", "0", R.mipmap.gal_sponch, "Bimbo"));
 
         //Helados
         itemsList.add(new ProductoItemsModel("Barrita", "0", "Helados", "1 U", "0", "10.00", "0", R.mipmap.hel_barrita, "Sarita"));
@@ -340,6 +378,77 @@ public class ProductosTodos extends AppCompatActivity {
         itemsList.add(new ProductoItemsModel("Viropulmin", "0", "Medicamentos", "1 U", "0", "60.00", "0", R.mipmap.med_viropulmin, "Bodega"));
         itemsList.add(new ProductoItemsModel("Vitaflenaco", "0", "Medicamentos", "1 U", "0", "6.00", "0", R.mipmap.med_vitaflenaco, "Bodega"));
 
+        //Higiene
+        itemsList.add(new ProductoItemsModel("Aromatizante Glade", "0", "Higiene", "1 U", "0", "100.00", "0", R.mipmap.hig_aromatizante_glade400ml, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Cepillo Dental Colgate", "0", "Higiene", "1 U", "0", "15.00", "0", R.mipmap.hig_cepillodientes_colgate, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Crema Head & Shoulders Grande", "0", "Higiene", "1 Sobre", "0", "7.00", "0", R.mipmap.hig_crema_headandshouldersgrande, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Crema Sedal Verde", "0", "Higiene", "1 Bote", "0", "65.00", "0", R.mipmap.hig_crema_sedalverde_bote, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Crema Sedal Verde Pequeña", "0", "Higiene", "1 Sobre", "0", "5.00", "0", R.mipmap.hig_crema_sedalverde_sobre, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Desodorante Dove Men en Barra", "0", "Higiene", "1 U", "0", "85.00", "0", R.mipmap.hig_desodorante_dove_barragris, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Desodorante Dove Mujer en Barra", "0", "Higiene", "1 U", "0", "85.00", "0", R.mipmap.hig_desodorante_dove_barrarosa, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Desodorante Dove Mujer en Aerosol", "0", "Higiene", "1 U", "0", "100.00", "0", R.mipmap.hig_desodorante_dove_sprayrosa, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Old Spice en Aerosol", "0", "Higiene", "1 U", "0", "100.00", "0", R.mipmap.hig_desodorante_oldspice_spray, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Rexona V8 en Barra", "0", "Higiene", "1 U", "0", "65.00", "0", R.mipmap.hig_desodorante_rexona_barraamarillo, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Rexona Tropical en Barra", "0", "Higiene", "1 U", "0", "65.00", "0", R.mipmap.hig_desodorante_rexona_barrarosa, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Rexona Men en Aerosol", "0", "Higiene", "1 U", "0", "100.00", "0", R.mipmap.hig_desodorante_rexona_spraygris, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Rexona Stay Fresh en Aerosol", "0", "Higiene", "1 U", "0", "100.00", "0", R.mipmap.hig_desodorante_rexona_sprayblanco, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Speed Stick Xtreme Ultra", "0", "Higiene", "1 U", "0", "25.00", "0", R.mipmap.hig_desodorante_speedstick, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Gelatina Ego", "0", "Higiene", "1 Bote", "0", "30.00", "0", R.mipmap.hig_gelatina_ego_bote, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Gelatina Ego en Sobre", "0", "Higiene", "1 U", "0", "8.00", "0", R.mipmap.hig_gelatina_ego_sobre, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Gelatina Xtreme", "0", "Higiene", "1 Bote", "0", "28.00", "0", R.mipmap.hig_gelatina_xtreme_bote, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Gillette Astra", "0", "Higiene", "1 U", "1 Caja", "6.00", "30.00", R.mipmap.hig_gillette_astra, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Jabón Irish Spring", "0", "Higiene", "1 U", "0", "26.00", "0", R.mipmap.hig_jabon_irishspring, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Jabón Palmolive", "0", "Higiene", "1 U", "0", "23.00", "0", R.mipmap.hig_jabon_palmolive, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Jabón Protex", "0", "Higiene", "1 U", "0", "25.00", "0", R.mipmap.hig_jabon_protex, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Jabón Venza", "0", "Higiene", "1 U", "0", "25.00", "0", R.mipmap.hig_jabon_venza, "Dinant"));
+        itemsList.add(new ProductoItemsModel("Pasta Colgate Triple Acción", "0", "Higiene", "1 U", "0", "27.00", "0", R.mipmap.hig_pastadental_colgatetripleaccion, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Paste de Baño", "0", "Higiene", "1 U", "0", "20.00", "0", R.mipmap.hig_pastedebano, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Prestobarba Bic", "0", "Higiene", "1 U", "0", "15.00", "0", R.mipmap.hig_prestobarba_bic, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Prestobarba Gillette", "0", "Higiene", "1 U", "0", "21.00", "0", R.mipmap.hig_prestobarba_gillette, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Shampoo Head & Shoulders Grande", "0", "Higiene", "1 Sobre", "0", "7.00", "0", R.mipmap.hig_shampoo_headandshoulders_sobregrande, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Shampoo Head & Sholders Pequeño", "0", "Higiene", "1 Sobre", "0", "5.00", "0", R.mipmap.hig_shampoo_headandshoulders_sobrepequeno, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Shampoo Pantene Grande", "0", "Higiene", "1 Sobre", "0", "7.00", "0", R.mipmap.hig_shampoo_pantene_sobregrande, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Shampoo Pantene Pequeño", "0", "Higiene", "1 Sobre", "0", "5.00", "0", R.mipmap.hig_shampoo_pantene_sobrepequeno, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Shampoo Sedal Pequeño", "0", "Higiene", "1 Sobre", "0", "5.00", "0", R.mipmap.hig_shampoo_sedal_sobrepequeno, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Toallas Kotex con Alas", "Toallas Kotex sin Alas", "Higiene", "1 U", "1 U", "28.00", "28.00", R.mipmap.hig_toallas_kotex, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Toallas Kotex Nocturnas con Alas", "Toallas Kotex Nocturnas sin Alas", "Higiene", "1 U", "1 U", "45.00", "45.00", R.mipmap.hig_toallasnocturnas_kotex, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Toallas Saba con Alas", "Toallas Saba sin Alas", "Higiene", "1 U", "1 U", "32.00", "32.00", R.mipmap.hig_toallasclasicas_saba, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Toallas Saba Nocturnas con Alas", "Toallas Saba Nocturnas sin Alas", "Higiene", "1 U", "1 U", "50.00", "50.00", R.mipmap.hig_toallasnocturnas_saba, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Toallas Húmedas", "0", "Higiene", "1 U", "0", "40.00", "0", R.mipmap.hig_toallashumedas, "Bodega"));
+
+        //Limpieza
+        itemsList.add(new ProductoItemsModel("Libra de Ace", "0", "Limpieza", "1 U", "0", "20.00", "0", R.mipmap.lim_ace_libra, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Ace Unox Pequeño", "0", "Limpieza", "1 U", "0", "7.00", "0", R.mipmap.lim_ace_unox, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Ace Xedex Grande", "0", "Limpieza", "1 U", "0", "38.00", "0", R.mipmap.lim_ace_xedexgrande, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Ace Xedex Pequeño", "0", "Limpieza", "1 U", "0", "16.00", "0", R.mipmap.lim_ace_xedexpequeno, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Aceite Rojo 250 ml", "0", "Limpieza", "1 Bote", "0", "45.00", "0", R.mipmap.lim_aceiterojo_superaseo, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Bolsa de Azistín 80 ml", "0", "Limpieza", "1 U", "0", "10.00", "0", R.mipmap.lim_azistin_bolsa, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Bote de Azistín 450 ml", "0", "Limpieza", "1 U", "0", "25.00", "0", R.mipmap.lim_azistin_bote, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Cloro Magia Blanca 200 ml", "0", "Limpieza", "1 Bolsa", "0", "8.00", "0", R.mipmap.lim_cloro_magiablanca_bolsa, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Cloro Magia Blanca 1 lts", "0", "Limpieza", "1 Bote", "0", "45.00", "0", R.mipmap.lim_cloro_magiablanca_bote1lts, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Cloro Magia Blanca 3.785 lts", "0", "Limpieza", "1 Bote", "0", "88.00", "0", R.mipmap.lim_cloro_magiablanca_botegalon, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Bolsa de Suavitel 80 ml", "0", "Limpieza", "1 U", "0", "9.00", "0", R.mipmap.lim_suavitel_bolsa, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Bote de Suavitel 850 ml", "0", "Limpieza", "1 U", "0", "52.00", "0", R.mipmap.lim_suavitel_bote, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Desodorante de Baño Normal", "0", "Limpieza", "1 U", "0", "20.00", "0", R.mipmap.lim_desodorantebano, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Desodorante de Baño Orix", "0", "Limpieza", "1 U", "0", "23.00", "0", R.mipmap.lim_desodorantebano_orix, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Jabón Axión de Disco", "0", "Limpieza", "1 U", "0", "9.00", "0", R.mipmap.lim_jabon_axiondisco, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Jabón Doña Blanca Grande", "Jabón Doña Blanca Pequeño", "Limpieza", "1 U", "1 U", "26.00", "9.00", R.mipmap.lim_jabon_donablancagrande, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Jabón Xtra", "0", "Limpieza", "1 U", "0", "31.00", "0", R.mipmap.lim_jabon_xtra, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Jabón Zixx", "0", "Limpieza", "1 U", "0", "31.00", "0", R.mipmap.lim_jabon_zixx, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Papel Cariñoso", "0", "Limpieza", "1 U", "0", "24.00", "0", R.mipmap.lim_papel_carinoso, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Papel Scott", "Papel Scott 4 Rollos", "Limpieza", "1 U", "1 Paquete", "28.00", "110.00", R.mipmap.lim_papel_scott4rollos, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Papel Toalla", "0", "Limpieza", "1 U", "0", "26.00", "0", R.mipmap.lim_papeltoalla, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Paquete de Servilletas", "0", "Limpieza", "1 U", "0", "20.00", "0", R.mipmap.lim_servilletas, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Paste Verde Scotch Brite", "0", "Limpieza", "1 U", "0", "23.00", "0", R.mipmap.lim_paste_scotchbrite, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Paste Metálico Scotch Brite", "0", "Limpieza", "1 U", "0", "23.00", "0", R.mipmap.lim_pastemetalico_scotchbrite, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Escoba", "0", "Limpieza", "1 U", "0", "60.00", "0", R.mipmap.lim_escoba, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Mechas de Trapeador", "0", "Limpieza", "1 U", "0", "50.00", "0", R.mipmap.lim_mechasparatrapeador, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Palo de Trapeador", "0", "Limpieza", "1 U", "0", "55.00", "0", R.mipmap.lim_palodetrapeador, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Raid en Aerosol 400 ml", "0", "Limpieza", "1 Bote", "0", "100.00", "0", R.mipmap.lim_raid_spray400ml, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Ganchos para Ropa", "0", "Limpieza", "1 Bolsa", "0", "60.00", "0", R.mipmap.lim_ganchosropa, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Cepillo para Ropa", "0", "Limpieza", "1 U", "0", "35.00", "0", R.mipmap.lim_cepillolavarropa, "Bodega"));
+        itemsList.add(new ProductoItemsModel("Cepillo para Inodoro", "0", "Limpieza", "1 U", "0", "50.00", "0", R.mipmap.lim_cepillobano, "Bodega"));
+
         //Cigarros
         itemsList.add(new ProductoItemsModel("Belmont Rojo Pequeño", "Belmont Rojo", "Cigarros", "1 Paquete", "1 U", "48.00", "5.00", R.mipmap.cig_beltmontrojo, "Bodega"));
         itemsList.add(new ProductoItemsModel("Belmont Rojo Grande", "Belmont Rojo", "Cigarros", "1 Paquete", "1 U", "70.00", "5.00", R.mipmap.cig_beltmontrojo, "Bodega"));
@@ -395,21 +504,11 @@ public class ProductosTodos extends AppCompatActivity {
         itemsList.add(new ProductoItemsModel("Papel Construcción", "0", "Utiles Escolares", "1 Hoja", "0", "2.00", "0", R.mipmap.uti_papelconstruccion, "ACOSA"));
         itemsList.add(new ProductoItemsModel("Plastilina", "0", "Utiles Escolares", "1 Caja", "0", "30.00", "0", R.mipmap.uti_plastilina, "ACOSA"));
 
+        return itemsList;
+    }
 
-        String productos[] = {"Salsina Naturas"};
-        String productos2[] = {"0"};
-        String categorias[] = {"Abarrotería"};
-        String cantidades[] = {"1 U"};
-        String cantidades2[] = {"0"};
-        String precios1[] = {"15.00"};
-        String precios2[] = {"0"};
-        int imagenes[] = {R.mipmap.aba_salsinanaturas};
-        String proveedores[] = {"Bodega"};
-
-        for(int i = 0; i < productos.length; i++) {
-            ProductoItemsModel itemsModel = new ProductoItemsModel(productos[i], productos2[i], categorias[i], cantidades[i], cantidades2[i], precios1[i], precios2[i], imagenes[i], proveedores[i]);
-            itemsList.add(itemsModel);
-        }
+    public List<ProductoItemsModel> obtenerProductos3() {
+        List<ProductoItemsModel> itemsList = new ArrayList<>();
 
         return itemsList;
     }
@@ -426,9 +525,9 @@ public class ProductosTodos extends AppCompatActivity {
         itemsList.add(new CatPrvItemsModel("Lácteos", R.mipmap.cat_lacteos));
         itemsList.add(new CatPrvItemsModel("Carnes y Embutidos", R.mipmap.cat_carnesembutidos));
         itemsList.add(new CatPrvItemsModel("Churros", R.mipmap.cat_churros));
+        itemsList.add(new CatPrvItemsModel("Dulces", R.mipmap.cat_dulces));
         itemsList.add(new CatPrvItemsModel("Galletas", R.mipmap.cat_galletas));
         itemsList.add(new CatPrvItemsModel("Panes", R.mipmap.cat_panes));
-        itemsList.add(new CatPrvItemsModel("Dulces", R.mipmap.cat_dulces));
         itemsList.add(new CatPrvItemsModel("Aguas e Hidratantes", R.mipmap.cat_aguashidratantes));
         itemsList.add(new CatPrvItemsModel("Energizantes", R.mipmap.cat_energizantes));
         itemsList.add(new CatPrvItemsModel("Medicamentos", R.mipmap.cat_medicamentos));
@@ -481,23 +580,30 @@ public class ProductosTodos extends AppCompatActivity {
     }
 
     //Método que inserta datos en las tablas de Categorias, Proveedores y Productos en la base de datos
-    public void insertarDatos(String tabla) {
+    public void insertarDatos(String tabla, int numero) {
         //Creamos 3 listas para almacenar los datos de las Categorías, Proveedores y Productos
         List<CatPrvItemsModel> itemsCategorias;
         List<CatPrvItemsModel> itemsProveedores;
-        List<ProductoItemsModel> itemsProductos;
+        List<ProductoItemsModel> itemsProductos = new ArrayList<>();
 
+        //Creamos 2 listas de tipo Integer que almacenarán los códigos de la BDD de cada categoría y cada proveedor
         List<Integer> codCategorias = new ArrayList<Integer>();
         List<Integer> codProveedores = new ArrayList<Integer>();
 
-        //Llenamos las 3 listas llamando a sus respectivos métodos que retornan una Lista ya con los datos
-        itemsProductos = obtenerProductos();
+        if (numero == 1) //Si el número recibido como parámetro es 1, entonces que llame al método "obtenerProductos1()" y reciba una lista con la primera porción de productos a insertar en la BDD
+            itemsProductos = obtenerProductos1();
+        else if (numero == 2) //Si el número recibido como parámetro es 2, entonces que llame al método "obtenerProductos12()" y reciba una lista con la segunda porción de productos a insertar en la BDD
+            itemsProductos = obtenerProductos2();
+
+        //Llenamos las 2 listas Categorías y Proveedores llamando a sus respectivos métodos que retornan una Lista ya con los datos
         itemsCategorias = obtenerCategorias();
         itemsProveedores = obtenerProveedores();
 
-        for (int i = 0; i < itemsProductos.size(); i++) {
-            codCategorias.add(codigoCatPrv(itemsProductos.get(i).getCategoria(), 1));
-            codProveedores.add(codigoCatPrv(itemsProductos.get(i).getProveedor(), 2));
+        if (numero != 0) { //Verificamos que este ciclo for se ejecute solamente cuando "número" sea distinto de 0, o sea, cuando estemos trabajando con los productos y no con las categorías y proveedores
+            for (int i = 0; i < itemsProductos.size(); i++) {
+                codCategorias.add(codigoCatPrv(itemsProductos.get(i).getCategoria(), 1));
+                codProveedores.add(codigoCatPrv(itemsProductos.get(i).getProveedor(), 2));
+            }
         }
 
         //Creamos un objeto de la clase AdminSQLiteOpen y le mandamos los parámetros al constructor de dicha clase. En este caso, como no estamos en una clase que deriva de un activity o un fragment, el contexto lo recuperamos como parámetro y lo mandamos desde una clase que si sea derivada de una activity o fragment
@@ -924,7 +1030,7 @@ public class ProductosTodos extends AppCompatActivity {
             }
         }
 
-        return 0; //Retornamos 0 si lo anterior da error
+        return -1; //Retornamos -1 si lo anterior da error
     }
 
     public int codigoProducto(String nombre) { //CAMBIAR POR SKU!!!!

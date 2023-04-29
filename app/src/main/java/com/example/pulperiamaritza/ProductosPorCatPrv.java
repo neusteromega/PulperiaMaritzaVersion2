@@ -96,4 +96,14 @@ public class ProductosPorCatPrv extends AppCompatActivity implements SearchView.
         Intent pagina = new Intent(this, Historial.class);
         startActivity(pagina);
     }
+
+    public void menuPrincipal(View view) {
+        Intent pagina = new Intent(this, MenuPrincipal.class);
+        startActivity(pagina);
+    }
+
+    public void carritoVenta(View view) {
+        Intent pagina = new Intent(this, CarritoVenta.class);
+        startActivity(pagina);
+    }
 }
