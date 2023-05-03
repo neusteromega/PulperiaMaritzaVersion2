@@ -85,7 +85,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/LLNombreEdit"
+                android:id="@+id/LLNombre1Edit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
@@ -101,26 +101,30 @@
                 android:paddingBottom="7dp">
 
                 <ImageView
-                    android:id="@+id/imgNombreProductoEdit"
+                    android:id="@+id/imgNombre1Edit"
                     android:layout_width="70dp"
                     android:layout_height="30dp"
-                    app:srcCompat="@mipmap/icono_nombreproductoazul" />
+                    android:layout_marginRight="5dp"
+                    android:contentDescription="@string/descripcion"
+                    android:onClick="deseleccionarSpinnerProveedores"
+                    app:srcCompat="@mipmap/icono_nombreproductoazul"
+                    tools:ignore="TouchTargetSizeCheck" />
 
                 <EditText
-                    android:id="@+id/txtNombreProductoEdit"
+                    android:id="@+id/txtNombre1Edit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
                     android:ems="10"
                     android:fontFamily="@font/montserrat_bold"
-                    android:hint="Nombre"
+                    android:hint="Nombre 1"
                     android:inputType="text"
                     android:textSize="20dp"
                     tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/LLPrecioEdit"
+                android:id="@+id/LLNombre2Edit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
@@ -136,19 +140,23 @@
                 android:paddingBottom="7dp">
 
                 <ImageView
-                    android:id="@+id/imgPrecioProductoEdit"
+                    android:id="@+id/imgNombre2Edit"
                     android:layout_width="70dp"
                     android:layout_height="30dp"
-                    app:srcCompat="@mipmap/icono_precioazul" />
+                    android:layout_marginRight="5dp"
+                    android:contentDescription="@string/descripcion"
+                    android:onClick="deseleccionarSpinnerCategorias"
+                    app:srcCompat="@mipmap/icono_nombreproductoazul"
+                    tools:ignore="TouchTargetSizeCheck" />
 
                 <EditText
-                    android:id="@+id/txtPrecioProductoEdit"
+                    android:id="@+id/txtNombre2Edit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
                     android:ems="10"
                     android:fontFamily="@font/montserrat_bold"
-                    android:hint="Precio"
+                    android:hint="Nombre 2"
                     android:inputType="text"
                     android:textSize="20dp"
                     tools:ignore="TouchTargetSizeCheck" />
@@ -181,6 +189,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/descripcion"
+                    android:prompt="@null"
                     tools:ignore="TouchTargetSizeCheck" />
 
             </LinearLayout>
@@ -212,12 +221,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/descripcion"
+                    android:prompt="@null"
                     tools:ignore="TouchTargetSizeCheck" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/LLTipoEdit"
+                android:id="@+id/LLTipo1Edit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
@@ -233,20 +243,129 @@
                 android:paddingBottom="7dp">
 
                 <ImageView
-                    android:id="@+id/imgTipoEdit"
+                    android:id="@+id/imgTipo1Edit"
                     android:layout_width="70dp"
                     android:layout_height="30dp"
+                    android:layout_marginRight="5dp"
                     app:srcCompat="@mipmap/icono_tipoproductoazul" />
 
                 <EditText
-                    android:id="@+id/txtTipoEdit"
+                    android:id="@+id/txtTipo1Edit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
                     android:ems="10"
                     android:fontFamily="@font/montserrat_bold"
-                    android:hint="Tipo"
+                    android:hint="Tipo 1"
                     android:inputType="text"
+                    android:textSize="20dp"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LLTipo2Edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/casilla_blanca_buscador"
+                android:elevation="5dp"
+                android:gravity="center|left"
+                android:orientation="horizontal"
+                android:paddingLeft="5dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp">
+
+                <ImageView
+                    android:id="@+id/imgTipo2Edit"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="5dp"
+                    app:srcCompat="@mipmap/icono_tipoproductoazul" />
+
+                <EditText
+                    android:id="@+id/txtTipo2Edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:hint="Tipo 2"
+                    android:inputType="text"
+                    android:textSize="20dp"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LLPrecio1Edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/casilla_blanca_buscador"
+                android:elevation="5dp"
+                android:gravity="center|left"
+                android:orientation="horizontal"
+                android:paddingLeft="5dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp">
+
+                <ImageView
+                    android:id="@+id/imgPrecio1Edit"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="5dp"
+                    app:srcCompat="@mipmap/icono_precioazul" />
+
+                <EditText
+                    android:id="@+id/txtPrecio1Edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:hint="Precio 1"
+                    android:inputType="numberDecimal"
+                    android:textSize="20dp"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LLPrecio2Edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/casilla_blanca_buscador"
+                android:elevation="5dp"
+                android:gravity="center|left"
+                android:orientation="horizontal"
+                android:paddingLeft="5dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp">
+
+                <ImageView
+                    android:id="@+id/imgPrecio2Edit"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="5dp"
+                    app:srcCompat="@mipmap/icono_precioazul" />
+
+                <EditText
+                    android:id="@+id/txtPrecio2Edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:hint="Precio 2"
+                    android:inputType="numberDecimal"
                     android:textSize="20dp"
                     tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>

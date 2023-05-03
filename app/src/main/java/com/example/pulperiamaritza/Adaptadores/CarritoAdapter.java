@@ -24,10 +24,10 @@ import com.example.pulperiamaritza.R;
 import java.util.List;
 
 public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.RecyclerHolder> {
-    List<CarritoItemsModel> items;
+    List<CarritoItemsModel> items; //Creamos una lista de tipo CarritoItemsModel
     Context context;
 
-    public CarritoAdapter(List<CarritoItemsModel> items, Context context) {
+    public CarritoAdapter(List<CarritoItemsModel> items, Context context) { //Inicializamos la lista "items" en el método constructor
         this.items = items;
         this.context = context;
     }
@@ -35,13 +35,14 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.Recycler
     @NonNull
     @Override
     public RecyclerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.items_carrito, parent, false);
-        return new RecyclerHolder(view);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.items_carrito, parent, false); //Inflamos la vista que utilizaremos para las tarjetas del RecyclerView
+        return new RecyclerHolder(view); //Retornamos un nuevo objeto de tipo RecyclerHolder (La clase estática de abajo) y le mandamos la vista de la variable "view"
     }
 
+    //Este método se ejecuta las veces que el método "getItemCount" lo indique, o sea, dependiendo del size de la lista "items"
     @Override
     public void onBindViewHolder(@NonNull RecyclerHolder holder, int position) {
-        CarritoItemsModel item = items.get(position); //Variable de tipo CarritoItemsModel que obtiene los datos almacenados en la list "items" también de tipo CarritoItemsModel
+        CarritoItemsModel item = items.get(position); //Variable de tipo CarritoItemsModel que obtiene los datos almacenados en la list "items" (un dato de la lista a la vez, dependiendo de la variable "posicion") también de tipo CarritoItemsModel
 
         //Pasamos los datos guardados en la lista "item" de tipo CarritoItemsModel a los distintos elementos de cada tarjeta del RecyclerView
         holder.imgProducto.setImageResource(item.getImagen());

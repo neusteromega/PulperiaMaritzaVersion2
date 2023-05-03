@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
+    android:animateLayoutChanges="true"
+    app:cardCornerRadius="30dp"
+    app:cardElevation="8dp"
+    app:cardUseCompatPadding="false">
+
+    <LinearLayout
+        android:id="@+id/LLBarcodeEdit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="5dp"
+        android:gravity="center|left"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp">
+
+        <ImageView
+            android:id="@+id/imgBarcodeEdit"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            app:srcCompat="@mipmap/icono_codigobarrasazul" />
+
+        <EditText
+            android:id="@+id/txtBarcodeEdit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:fontFamily="@font/montserrat_bold"
+            android:hint="Código de Barras"
+            android:inputType="number"
+            android:textSize="20dp"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -8,21 +8,26 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pulperiamaritza.Herramientas.ProductosTodos;
+import com.example.pulperiamaritza.Modelos.CarritoItemsModel;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ProductosDetalle extends AppCompatActivity implements TextWatcher {
+public class ProductosDetalle extends AppCompatActivity implements TextWatcher, PopupMenu.OnMenuItemClickListener {
 
     private ImageView imgProducto;
     private TextView lblPrecio, lblNombreProducto, lblCategoria, lblProveedor, lblDatosTitulo, lblTipoProducto, lblTotalProducto;
@@ -56,11 +61,11 @@ public class ProductosDetalle extends AppCompatActivity implements TextWatcher {
         lblCategoria.setText(intent.getStringExtra("productoCategoria"));
         lblProveedor.setText(intent.getStringExtra("productoProveedor"));
 
-        if (intent.getStringExtra("productoCantidad").contentEquals("1 U")) {
+        if (intent.getStringExtra("productoTipo").contentEquals("1 U")) {
             lblTipoProducto.setText("Unidad");
         }
         else {
-            String tipoTexto = intent.getStringExtra("productoCantidad");
+            String tipoTexto = intent.getStringExtra("productoTipo");
             tipoTexto = tipoTexto.replaceAll("[^\\p{L}]", "");
             lblTipoProducto.setText(tipoTexto);
         }
@@ -74,7 +79,7 @@ public class ProductosDetalle extends AppCompatActivity implements TextWatcher {
 
         lblDatosTitulo.setText("Datos del Producto en "+ nombreMes);
 
-        if (intent.getStringExtra("productoCantidad2").contentEquals("0")) {
+        if (intent.getStringExtra("productoTipo2").contentEquals("0")) { //Verificamos que el producto no tenga un segundo tipo (si no lo tiene, mantiene un "0" guardado) para que el switch se vuelva invisible
             swCambiar.setVisibility(View.INVISIBLE);
         }
 
@@ -109,11 +114,11 @@ public class ProductosDetalle extends AppCompatActivity implements TextWatcher {
                 if (!intent.getStringExtra("productoNombre2").contentEquals("0")) //Si el segundo nombre del producto no es "0", entonces que me asigne dicho nombre en el TextView "lblNombreProducto"
                     lblNombreProducto.setText(intent.getStringExtra("productoNombre2"));
 
-                if (intent.getStringExtra("productoCantidad2").contentEquals("1 U")) {
+                if (intent.getStringExtra("productoTipo2").contentEquals("1 U")) {
                     lblTipoProducto.setText("Unidad");
                 } else {
                     //Extraemos solo el texto que se encuentra en la segunda cantidad que puede tener el producto
-                    String tipoTexto = intent.getStringExtra("productoCantidad2");
+                    String tipoTexto = intent.getStringExtra("productoTipo2");
                     tipoTexto = tipoTexto.replaceAll("[^\\p{L}]", "");
                     lblTipoProducto.setText(tipoTexto);
                 }
@@ -127,11 +132,11 @@ public class ProductosDetalle extends AppCompatActivity implements TextWatcher {
                 lblPrecio.setText("L." + intent.getStringExtra("productoPrecio"));
                 lblNombreProducto.setText(intent.getStringExtra("productoNombre"));
 
-                if (intent.getStringExtra("productoCantidad").contentEquals("1 U")) {
+                if (intent.getStringExtra("productoTipo").contentEquals("1 U")) {
                     lblTipoProducto.setText("Unidad");
                 } else {
                     //Extraemos solo el texto que se encuentra en la primera cantidad que puede tener el producto
-                    String tipoTexto = intent.getStringExtra("productoCantidad");
+                    String tipoTexto = intent.getStringExtra("productoTipo");
                     tipoTexto = tipoTexto.replaceAll("[^\\p{L}]", "");
                     lblTipoProducto.setText(tipoTexto);
                 }
@@ -190,34 +195,75 @@ public class ProductosDetalle extends AppCompatActivity implements TextWatcher {
     }
 
     public void carrito(View view) {
-        String regex = "(?<=L\\.)\\d+\\.\\d+";
-        String precio = lblPrecio.getText().toString();
-        String resultPrecio = "";
-        String total = lblTotalProducto.getText().toString();
-        String resultTotal = "";
+        boolean verificarProducto = false; //Creamos una variable booleana para comprobar si el producto ya fue agregado al carrito o no
+        List<CarritoItemsModel> itemsCarrito; //Creamos una lista de tipo CarritoItemsModel
+        itemsCarrito = todos.obtenerCarrito(); //Obtenemos los productos ya agregados al carrito (la tabla CarritoTemporal de la BDD) llamando al método "obtenerCarrito()" de la clase ProductosTodos
 
-        Pattern patternPrecio = Pattern.compile(regex);
-        Matcher matcherPrecio = patternPrecio.matcher(precio);
+        for (int i = 0; i < itemsCarrito.size(); i++) { //Hacemos un for que recorra toda la lista "itemsCarrito"
+            if (lblNombreProducto.getText().toString().contentEquals(itemsCarrito.get(i).getNombre())) { //Creamos un if que verifique si el nombre del producto actual coincide con algún producto agregado en el carrito
+                verificarProducto = true; //Si algún producto coincide con el producto actual, quiere decir que este producto ya está en el carrito, por lo tanto, la variable "verificarProducto" pasa a ser true
+            }
+        }
 
-        if (matcherPrecio.find())
-            resultPrecio = matcherPrecio.group();
+        if (verificarProducto == false) { //Verificamos que si la variable "verificarProducto" es falsa, quiere decir que el producto actual no está en el carrito, por lo tanto, procedemos a hacer lo demás para añadirlo
+            String regex = "(?<=L\\.)\\d+\\.\\d+";
+            String precio = lblPrecio.getText().toString(); //Extraemos el precio del lblPrecio
+            String resultPrecio = "";
+            String total = lblTotalProducto.getText().toString(); //Extraemos el total del lblTotalProducto
+            String resultTotal = "";
 
-        Pattern patternTotal = Pattern.compile(regex);
-        Matcher matcherTotal = patternTotal.matcher(total);
+            Pattern patternPrecio = Pattern.compile(regex);
+            Matcher matcherPrecio = patternPrecio.matcher(precio);
 
-        if (matcherTotal.find())
-            resultTotal = matcherTotal.group();
+            if (matcherPrecio.find())
+                resultPrecio = matcherPrecio.group();
 
-        Intent intent = getIntent();
-        /*todos.nombreProducto = lblNombreProducto.getText().toString();
-        todos.tipoProducto = lblTipoProducto.getText().toString();
-        todos.cantidadProducto = lblCantidad.getText().toString();
-        todos.precioProducto = resultPrecio;
-        todos.totalProducto = resultTotal;
-        todos.imagenProducto = intent.getIntExtra("productoImagen", 0);*/
+            Pattern patternTotal = Pattern.compile(regex);
+            Matcher matcherTotal = patternTotal.matcher(total);
 
-        //insertarDatosCarrito(resultPrecio, resultTotal, intent.getIntExtra("productoImagen", 0));
-        todos.insertarDatosCarrito(lblNombreProducto.getText().toString(), lblTipoProducto.getText().toString(), lblCantidad.getText().toString(), resultPrecio, resultTotal, intent.getIntExtra("productoImagen", 0));
+            if (matcherTotal.find())
+                resultTotal = matcherTotal.group();
+
+            Intent intent = getIntent();
+            todos.insertarDatosCarrito(lblNombreProducto.getText().toString(), lblTipoProducto.getText().toString(), lblCantidad.getText().toString(), resultPrecio, resultTotal, intent.getIntExtra("productoImagen", 0));
+        }
+        else { //Pero si "verificarProducto" es true, el producto ya ha sido agregado en el carrito
+            Toast.makeText(this, "ESTE PRODUCTO YA SE ENCUENTRA EN EL CARRITO", Toast.LENGTH_SHORT).show(); //Enviamos un mensaje en pantalla con una advertencia indicando que el producto ya está en el carrito
+        }
+    }
+
+    public void menuOpciones(View view) {
+        PopupMenu popup = new PopupMenu(this, view); //Objeto de tipo "PopupMenu"
+        popup.setOnMenuItemClickListener(this); //Indicamos que asigne el evento "OnMenuItemClick" para que haga algo cada vez que se dé click a una opción del menú
+        popup.inflate(R.menu.popupmenu_opcionesproducto); //Inflamos la vista del menú indicando la ruta de dicha vista gráfica
+        popup.show(); //Mostramos el menú ya inflado
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) { //Parte lógica de lo que queremos que haga cada opción del popup menú
+        switch (menuItem.getItemId()) { //Switch que responderá dependiendo el id del item que se está clickeando
+            case R.id.menuEditarProducto:
+                Intent pagina = new Intent(this, ProductosEditar.class);
+                Intent intent = getIntent();
+
+                pagina.putExtra("prdImagen", intent.getIntExtra("productoImagen", 0));
+                pagina.putExtra("prdNombre1", intent.getStringExtra("productoNombre"));
+                pagina.putExtra("prdNombre2", intent.getStringExtra("productoNombre2"));
+                pagina.putExtra("prdPrecio1", intent.getStringExtra("productoPrecio"));
+                pagina.putExtra("prdPrecio2", intent.getStringExtra("productoPrecio2"));
+                pagina.putExtra("prdTipo1", intent.getStringExtra("productoTipo"));
+                pagina.putExtra("prdTipo2", intent.getStringExtra("productoTipo2"));
+                pagina.putExtra("prdCategoria", intent.getStringExtra("productoCategoria"));
+                pagina.putExtra("prdProveedor", intent.getStringExtra("productoProveedor"));
+
+                startActivity(pagina);
+                return true;
+            case R.id.menuInhabilitarProducto:
+                Toast.makeText(this, "ELIMINAR PRODUCTO", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return false;
+        }
     }
 
     //Antes de que el texto del Edittext cambie

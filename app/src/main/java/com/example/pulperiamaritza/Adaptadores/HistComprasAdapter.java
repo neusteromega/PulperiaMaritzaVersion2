@@ -17,7 +17,7 @@ public class HistComprasAdapter extends RecyclerView.Adapter<HistComprasAdapter.
     private List<HistComprasItemsModel> items; //Creamos una lista de tipo HistComprasItemsModel
     private View.OnClickListener listener; //Creamos un escuchador (listener) de tipo "View.OnClickListener" que nos servirá para el onClick de cada tarjeta del RecyclerView
 
-    public HistComprasAdapter(List<HistComprasItemsModel> items) {
+    public HistComprasAdapter(List<HistComprasItemsModel> items) { //Inicializamos la lista "items" en el método constructor
         this.items = items;
     }
 
@@ -32,7 +32,7 @@ public class HistComprasAdapter extends RecyclerView.Adapter<HistComprasAdapter.
     //Este método se ejecuta las veces que el método "getItemCount" lo indique, o sea, dependiendo del size de la lista "items"
     @Override
     public void onBindViewHolder(@NonNull HistComprasAdapter.RecyclerHolder holder, int position) {
-        HistComprasItemsModel item = items.get(position); //Creamos una lista de tipo HistComprasItemsModel llamada "item" la cual igualamos a la otra lista "items" extrayendo posición por posición
+        HistComprasItemsModel item = items.get(position); //Variable de tipo HistComprasItemsModel que obtiene los datos almacenados en la list "items" (un dato de la lista a la vez, dependiendo de la variable "posicion") también de tipo HistComprasItemsModel
 
         //Haciendo uso del objeto "holder", asignamos los textos a las diferentes variables que se encuentran en la clase estática "RecyclerHolder"
         holder.tvCodigo.setText(item.getCodigo());

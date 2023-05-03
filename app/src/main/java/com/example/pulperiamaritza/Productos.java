@@ -54,8 +54,8 @@ public class Productos extends AppCompatActivity implements SearchView.OnQueryTe
                 intent.putExtra("productoNombre2", items.get(rvProductos.getChildAdapterPosition(view)).getNombre2());
                 intent.putExtra("productoCategoria", items.get(rvProductos.getChildAdapterPosition(view)).getCategoria());
                 intent.putExtra("productoProveedor", items.get(rvProductos.getChildAdapterPosition(view)).getProveedor());
-                intent.putExtra("productoCantidad", items.get(rvProductos.getChildAdapterPosition(view)).getTipo1());
-                intent.putExtra("productoCantidad2", items.get(rvProductos.getChildAdapterPosition(view)).getTipo2());
+                intent.putExtra("productoTipo", items.get(rvProductos.getChildAdapterPosition(view)).getTipo1());
+                intent.putExtra("productoTipo2", items.get(rvProductos.getChildAdapterPosition(view)).getTipo2());
                 startActivity(intent);
 
                 //Toast.makeText(getApplicationContext(), "Selección: " + items.get(rvProductos.getChildAdapterPosition(view)).getNombre(), Toast.LENGTH_SHORT).show();

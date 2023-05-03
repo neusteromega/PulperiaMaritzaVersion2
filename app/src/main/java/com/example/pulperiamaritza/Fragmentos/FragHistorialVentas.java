@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.pulperiamaritza.Adaptadores.HistVentasAdapter;
 import com.example.pulperiamaritza.Herramientas.ProductosTodos;
@@ -34,8 +35,9 @@ public class FragHistorialVentas extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    RecyclerView rvHistorialVentas;
-    List<HistVentasItemsModel> itemsVentas;
+    RecyclerView rvHistorialVentas; //Creamos una variable de tipo RecyclerView
+    List<HistVentasItemsModel> itemsVentas; //Creamos una lista de tipo HistVentasItemsModel
+    TextView lblTotalVendido;
 
     public FragHistorialVentas() {
         // Required empty public constructor
@@ -70,17 +72,27 @@ public class FragHistorialVentas extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View vista = inflater.inflate(R.layout.fragment_historial_ventas, container, false);
+        double totalVentas = 0; //Variable para guardar la sumatoria de los totales de las ventas
 
+        View vista = inflater.inflate(R.layout.fragment_historial_ventas, container, false);
         ProductosTodos todos = new ProductosTodos(getContext()); //Ponemos el objeto aquí y no de forma global ya que el "getContext()" se genera cuando se crea el fragment, aquí en "onCreateView"
-        rvHistorialVentas = vista.findViewById(R.id.rvHistVentas); //Enlazamos el RecyclerView "rvHistVentas" a la variable "rvHistorialVentas"
+
+        //Enlazamos los componentes gráficos del fragment a sus respectivas variables
+        rvHistorialVentas = vista.findViewById(R.id.rvHistVentas);
+        lblTotalVendido = vista.findViewById(R.id.lblTotalVendidoHVnt);
 
         rvHistorialVentas.setLayoutManager(new LinearLayoutManager(getContext())); //Usamos "getContext()" y no "this" porque no estamos en un activity, sino en un fragment
-        itemsVentas = todos.obtenerVentas();
+        itemsVentas = todos.obtenerVentas(); //Obtenemos los datos de las ventas llamando al método "obtenerVentas()" de la clase ProductosTodos y los guardamos en la lista "itemsVentas"
 
-        if (itemsVentas != null) {
-            HistVentasAdapter adapter = new HistVentasAdapter(itemsVentas);
-            rvHistorialVentas.setAdapter(adapter);
+        if (itemsVentas != null) { //Verificamos que la lista "itemsVentas" no sea nula
+            HistVentasAdapter adapter = new HistVentasAdapter(itemsVentas); //Creamos una variable de tipo HistVentasAdapter y le pasamos al método constructor de la clase la lista "itemsVentas"
+            rvHistorialVentas.setAdapter(adapter); //Asignamos el adaptador al RecyclerView "rvHistorialVentas"
+
+            for (int i = 0; i < itemsVentas.size(); i++) { //Creamos un for que recorra toda la lista "itemsVentas"
+                totalVentas += Double.parseDouble(itemsVentas.get(i).getTotal()); //Vamos sumando y guardando los totales de las ventas en la variable "totalVentas"
+            }
+
+            lblTotalVendido.setText("L." + String.format("%.2f", totalVentas)); //Asignamos el totalVentas al elemento lblTotalVendido
         }
 
         return vista;

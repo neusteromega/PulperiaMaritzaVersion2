@@ -58,6 +58,7 @@
                             android:id="@+id/imgOpciones"
                             android:layout_width="wrap_content"
                             android:layout_height="20dp"
+                            android:onClick="menuOpciones"
                             app:srcCompat="@mipmap/icono_opcionesazul" />
                     </LinearLayout>
 
