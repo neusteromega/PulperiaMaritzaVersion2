@@ -121,7 +121,7 @@ public class CarritoVenta extends AppCompatActivity {
 
         //Guardar la fecha de hoy
         Calendar calendar = Calendar.getInstance(); //Obtener la fecha actual
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy"); //Crear el formato de fecha que deseas
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); //Crear el formato de fecha que deseas
         String fechaActual = dateFormat.format(calendar.getTime()); //Convertir la fecha a un String
 
         int conf = todos.insertarVenta(fechaActual, bolsasNum); //Usando el objeto "todos" de la clase "ProductosTodos", llamamos al método "insertarVenta" y le mandamos la fecha de hoy (fechaActual) y la cantidad de bolsas (bolsasNum) como parámetros
