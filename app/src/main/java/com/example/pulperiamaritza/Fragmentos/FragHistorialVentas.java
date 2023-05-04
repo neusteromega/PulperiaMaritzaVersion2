@@ -23,8 +23,10 @@ import com.example.pulperiamaritza.Herramientas.ProductosTodos;
 import com.example.pulperiamaritza.Modelos.HistVentasItemsModel;
 import com.example.pulperiamaritza.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -47,7 +49,7 @@ public class FragHistorialVentas extends Fragment implements PopupMenu.OnMenuIte
     private List<HistVentasItemsModel> itemsVentas; //Creamos una lista de tipo HistVentasItemsModel
     private TextView lblTotalVendido, lblFiltro, lblFechaSeleccionada;
     private LinearLayout lnlFiltrar, lnlSeleccionarFecha;
-    private int day, month, year;
+    private int day, week, month, year;
 
     public FragHistorialVentas() {
         // Required empty public constructor
@@ -108,10 +110,21 @@ public class FragHistorialVentas extends Fragment implements PopupMenu.OnMenuIte
             }
         });
 
-        lnlSeleccionarFecha.setOnClickListener(new View.OnClickListener() {
+        lnlSeleccionarFecha.setOnClickListener(new View.OnClickListener() { //Creamos un "setOnClickListener" para que implemente el evento onClick al LinearLayout "lnlSeleccionarFecha"
             @Override
             public void onClick(View view) {
-                mostrarDatePickerDialog();
+                String filtro = lblFiltro.getText().toString();
+
+                if (filtro.contentEquals("Filtrar"))
+                    Toast.makeText(getContext(), "DEBE SELECCIONAR UN ELEMENTO PARA FILTRAR", Toast.LENGTH_LONG).show();
+                else if (filtro.contentEquals("Día"))
+                    mostrarDatePickerDia(); //Mandamos a llamar al método "mostrarDatePickerDia" para seleccionar un día en el calendario
+                else if (filtro.contentEquals("Semana"))
+                    mostrarDatePickerSemana();
+                else if (filtro.contentEquals("Mes"))
+                    Toast.makeText(getContext(), "Vamos a seleccionar un mes", Toast.LENGTH_SHORT).show();
+                else if (filtro.contentEquals("Año"))
+                    Toast.makeText(getContext(), "Vamos a seleccionar un año", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -154,20 +167,52 @@ public class FragHistorialVentas extends Fragment implements PopupMenu.OnMenuIte
         }
     }
 
-    private void mostrarDatePickerDialog() {
-        final Calendar c = Calendar.getInstance(); //
+    private void mostrarDatePickerDia() { //Método para seleccionar un día en el calendario
+        final Calendar c = Calendar.getInstance(); //Creamos un objeto de tipo Calendar que representa la fecha y hora actuales en el dispositivo donde se está ejecutando el código
 
-        year = c.get(Calendar.YEAR); //Obtenemos el año seleccionado
-        month = c.get(Calendar.MONTH); //Obtenemos el mes seleccionado
-        day = c.get(Calendar.DAY_OF_MONTH); //Obtenemos el día seleccionado
+        year = c.get(Calendar.YEAR); //Obtenemos el año actual
+        month = c.get(Calendar.MONTH); //Obtenemos el mes actual
+        day = c.get(Calendar.DAY_OF_MONTH); //Obtenemos el día actual
 
-        DatePickerDialog datePickerDialog = new DatePickerDialog(requireContext(), new DatePickerDialog.OnDateSetListener() {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(requireContext(), new DatePickerDialog.OnDateSetListener() { //Creamos una variable de tipo DatePickerDialog, y creamos el evento "OnDateSetListener" para que responda cuando se selecciona una fecha del calendario
             @Override
             public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
-                lblFechaSeleccionada.setText(String.format("%02d/%02d/%04d", dayOfMonth, monthOfYear + 1, year)); //Asignamos la fecha seleccionada con el formato "00-00-0000" al TextView "lblFechaSeleccionada" y
+                lblFechaSeleccionada.setText(String.format("%02d/%02d/%04d", dayOfMonth, monthOfYear + 1, year)); //Asignamos la fecha seleccionada con el formato "00/00/0000" al TextView "lblFechaSeleccionada" y
             }
-        }, year, month, day);
+        }, year, month, day); //Estas tres variables nos ayudan a que la fecha predeterminada en el calendario sea la fecha de hoy
 
-        datePickerDialog.show();
+        datePickerDialog.show(); //Mostramos el calendario
+    }
+
+    private void mostrarDatePickerSemana() { //Método para seleccionar una semana en el calendario
+        final Calendar c = Calendar.getInstance(); //Creamos un objeto de tipo Calendar que representa la fecha y hora actuales en el dispositivo donde se está ejecutando el código
+        year = c.get(Calendar.YEAR); //Obtenemos el año actual
+        month = c.get(Calendar.MONTH); //Obtenemos el mes actual
+        week = c.get(Calendar.WEEK_OF_YEAR); //Obtenemos la semana actual
+        day = c.get(Calendar.DAY_OF_MONTH); //Obtenemos el día actual
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(requireContext(), new DatePickerDialog.OnDateSetListener() { //Creamos una variable de tipo DatePickerDialog, y creamos el evento "OnDateSetListener" para que responda cuando se selecciona una fecha del calendario
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) { //El evento recibe como parámetros un "datePicker" que es una como la vista del calendario, "year" que es el año seleccionado, "monthOfYear" es el mes seleccionado, y "dayOfMonth" es el día seleccionado
+                Calendar calendar = Calendar.getInstance(); //Creamos un objeto de tipo Calendar
+                calendar.set(year, monthOfYear, dayOfMonth); //Asignamos la fecha seleccionada en el DatePicker a la variable "calendar"
+                int weekOfYear = calendar.get(Calendar.WEEK_OF_YEAR); //Obtenemos el número de la semana del año dependiendo la fecha seleccionada en el DatePicker
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); //Creamos una variable de tipo SimpleDateFormat en la cual asignamos un formato para la fecha (dd/MM/yyyy)
+
+                //Calcular el primer día de la semana seleccionada
+                calendar.setWeekDate(year, weekOfYear, Calendar.SUNDAY); //Asignamos el primer día de la semana a la variable "calendar" dependiendo la fecha que se seleccionó, usamos "setWeekDate" y le mandamos el año seleccionado "year", la semana del año que se seleccionó "weekOfYear", y le asignamos el día domingo con "Calendar.SUNDAY"
+                Date inicioSemana = calendar.getTime(); //Como en la variable "calendar" se encuentra el primer día de la semana dependiendo la fecha seleccionada, guardamos ese primer día en la variable "inicioSemana" de tipo Date
+                String inicioSemanaString = dateFormat.format(inicioSemana); //Guardamos el contenido de la variable "inicioSemana" en un String llamado "inicioSemanaString", pero primero lo convertimos al formato guardado en la variable "dateFormat"
+
+                //Calcular el último día de la semana seleccionada
+                calendar.setWeekDate(year, weekOfYear, Calendar.SATURDAY); //Asignamos el último día de la semana a la variable "calendar" dependiendo la fecha que se seleccionó, usamos "setWeekDate" y le mandamos el año seleccionado "year", la semana del año que se seleccionó "weekOfYear", y le asignamos el día sábado con "Calendar.SATURDAY"
+                Date finSemana = calendar.getTime(); //Como en la variable "calendar" se encuentra el último día de la semana dependiendo la fecha seleccionada, guardamos ese último día en la variable "finSemana" de tipo Date
+                String finSemanaString = dateFormat.format(finSemana); //Guardamos el contenido de la variable "finSemana" en un String llamado "finSemanaString", pero primero lo convertimos al formato guardado en la variable "dateFormat"
+
+                lblFechaSeleccionada.setText(inicioSemanaString + " - " + finSemanaString); //Establecemos el rango de días de la semana seleccionada
+            }
+        }, year, month, day); //Estas tres variables nos ayudan a que la fecha predeterminada en el calendario sea la fecha de hoy
+
+        datePickerDialog.show(); //Mostramos el calendario
     }
 }
