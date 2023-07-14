@@ -667,6 +667,25 @@ public class ProductosTodos extends AppCompatActivity {
         }
     }
 
+    public void insertarRoles() {
+        AdminSQLiteOpen admin = new AdminSQLiteOpen(context, "PulperiaMaritza", null, 1);
+        SQLiteDatabase baseDatos = admin.getWritableDatabase();
+
+        List<String> roles = new ArrayList<String>();
+
+        roles.add("Cliente");
+        roles.add("Empleado");
+
+        for (int i = 0; i < roles.size(); i++) {
+            ContentValues rol = new ContentValues();
+
+            rol.put("RolNombre", roles.get(i));
+            baseDatos.insert("Roles", null, rol);
+        }
+
+        baseDatos.close();
+    }
+
     public void insertarDatosCarrito(String nombre, String tipo, String cantidad, String precio, String total, int imagen) {
         //Creamos un objeto de la clase AdminSQLiteOpen y le mandamos los parámetros al constructor de dicha clase. En este caso, como no estamos en una clase que deriva de un activity o un fragment, el contexto lo recuperamos como parámetro y lo mandamos desde una clase que si sea derivada de una activity o fragment
         AdminSQLiteOpen admin = new AdminSQLiteOpen(context, "PulperiaMaritza", null, 1);
@@ -687,7 +706,7 @@ public class ProductosTodos extends AppCompatActivity {
             //Realizamos la inserción de los datos especificando el nombre de la tabla, y al final, colocamos el ContentValues "datos"
             long id = baseDatos.insert("CarritoTemporal", null, datos);
 
-            if (id > 0)
+            if (id > 0) //Si "id" recibió un valor mayor que 0, significa que se realizó correctamente la inserción de datos
                 Toast.makeText(context, "PRODUCTO AGREGADO EN EL CARRITO", Toast.LENGTH_SHORT).show();
             else
                 Toast.makeText(context, "ERROR AL AGREGAR EL PRODUCTO AL CARRITO", Toast.LENGTH_SHORT).show();

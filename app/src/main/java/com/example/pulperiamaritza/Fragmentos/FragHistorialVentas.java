@@ -1,5 +1,6 @@
 package com.example.pulperiamaritza.Fragmentos;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 
@@ -23,6 +24,7 @@ import com.example.pulperiamaritza.Herramientas.ProductosTodos;
 import com.example.pulperiamaritza.Modelos.HistVentasItemsModel;
 import com.example.pulperiamaritza.R;
 
+import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -116,15 +118,15 @@ public class FragHistorialVentas extends Fragment implements PopupMenu.OnMenuIte
                 String filtro = lblFiltro.getText().toString();
 
                 if (filtro.contentEquals("Filtrar"))
-                    Toast.makeText(getContext(), "DEBE SELECCIONAR UN ELEMENTO PARA FILTRAR", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "SELECCIONE UN ELEMENTO PARA FILTRAR", Toast.LENGTH_LONG).show();
                 else if (filtro.contentEquals("Día"))
                     mostrarDatePickerDia(); //Mandamos a llamar al método "mostrarDatePickerDia" para seleccionar un día en el calendario
                 else if (filtro.contentEquals("Semana"))
-                    mostrarDatePickerSemana();
+                    mostrarDatePickerSemana(); //Mandamos a llamar al método "mostrarDatePickerSemana" para seleccionar una semana en el calendario
                 else if (filtro.contentEquals("Mes"))
-                    Toast.makeText(getContext(), "Vamos a seleccionar un mes", Toast.LENGTH_SHORT).show();
+                    mostrarDatePickerMes(); //Mandamos a llamar al método "mostrarDatePickerMes" para seleccionar un mes en el calendario
                 else if (filtro.contentEquals("Año"))
-                    Toast.makeText(getContext(), "Vamos a seleccionar un año", Toast.LENGTH_SHORT).show();
+                    mostrarDatePickerAnio(); //Mandamos a llamar al método "mostrarDatePickerAnio" para seleccionar un año en el calendario
             }
         });
 
@@ -147,19 +149,15 @@ public class FragHistorialVentas extends Fragment implements PopupMenu.OnMenuIte
     public boolean onMenuItemClick(MenuItem menuItem) { //Parte lógica de lo que queremos que haga cada opción del popup menú
         switch (menuItem.getItemId()) { //Switch que responderá dependiendo el id del item que se está clickeando
             case R.id.menuDiaFilt:
-                Toast.makeText(getContext(), "Día", Toast.LENGTH_SHORT).show();
                 lblFiltro.setText("Día");
                 return true;
             case R.id.menuSemanaFilt:
-                Toast.makeText(getContext(), "Semana", Toast.LENGTH_SHORT).show();
                 lblFiltro.setText("Semana");
                 return true;
             case R.id.menuMesFilt:
-                Toast.makeText(getContext(), "Mes", Toast.LENGTH_SHORT).show();
                 lblFiltro.setText("Mes");
                 return true;
             case R.id.menuYearFilt:
-                Toast.makeText(getContext(), "Año", Toast.LENGTH_SHORT).show();
                 lblFiltro.setText("Año");
                 return true;
             default:
@@ -209,10 +207,88 @@ public class FragHistorialVentas extends Fragment implements PopupMenu.OnMenuIte
                 Date finSemana = calendar.getTime(); //Como en la variable "calendar" se encuentra el último día de la semana dependiendo la fecha seleccionada, guardamos ese último día en la variable "finSemana" de tipo Date
                 String finSemanaString = dateFormat.format(finSemana); //Guardamos el contenido de la variable "finSemana" en un String llamado "finSemanaString", pero primero lo convertimos al formato guardado en la variable "dateFormat"
 
-                lblFechaSeleccionada.setText(inicioSemanaString + " - " + finSemanaString); //Establecemos el rango de días de la semana seleccionada
+                lblFechaSeleccionada.setText(inicioSemanaString + " " + finSemanaString); //Establecemos el rango de días de la semana seleccionada
             }
         }, year, month, day); //Estas tres variables nos ayudan a que la fecha predeterminada en el calendario sea la fecha de hoy
 
         datePickerDialog.show(); //Mostramos el calendario
+    }
+
+    private void mostrarDatePickerMes() {
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() { //Creamos una variable de tipo DatePickerDialog, y creamos el evento "OnDateSetListener" para que responda cuando se selecciona una fecha del AlertDialog o Popup DatePicker de sólo mes y año
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1; //Al mes le sumamos +1 porque los meses por defecto empiezan en 0 y no en 1
+                String date = convertirMonthYearString(month, year); //Guardamos el mes y año convertidos a String llamando al método "convertirMonthYearString" con los parámetros de mes y año, y esto retorna el String
+                lblFechaSeleccionada.setText(date); //Asignamos la fecha ya convertida a String al lblFechaSeleccionada
+            }
+        };
+
+        Calendar cal = Calendar.getInstance(); //Creamos un objeto de tipo Calendar que representa la fecha y hora actuales en el dispositivo donde se está ejecutando el código
+        int year = cal.get(Calendar.YEAR); //Obtenemos el año actual
+        int month = cal.get(Calendar.MONTH); //Obtenemos el mes actual
+        int day = cal.get(Calendar.DAY_OF_MONTH); //Obtenemos el día actual
+        int style = AlertDialog.THEME_HOLO_LIGHT; //En una variable entera guardamos el estilo que tendrá la ventana emergente
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(requireContext(), style, dateSetListener, year, month, day); //Creamos un nuevo objeto de tipo DatePickerDialog y le mandamos como parámetros al constructor, un contexto, la variable "style" que guarda el estilo, el "dateSetListener", el año, mes y día, estos últimos para que al abrir el AlertDialog, se muestre el mes actual
+        //datePickerDialog.getDatePicker().setSpinnersShown(true); //Habilitamos la opción de seleccionar los componentes de fecha (mes y año) mediante spinners en lugar de un calendario
+        //datePickerDialog.getDatePicker().setCalendarViewShown(false); //Ocultamos la vista del calendario en el DatePicker
+        datePickerDialog.getDatePicker().findViewById(getResources().getIdentifier("day", "id", "android")).setVisibility(View.GONE); //Ocultamos el spinner de días asignando "GONE" en su visibilidad
+        datePickerDialog.show(); //Mostramos el AlertDialog o Popup DatePicker de solo mes y año
+    }
+
+    private String convertirMonthYearString(int month, int year) {
+        return obtenerFormatoMes(month) + " - " + year; //Retornamos la cadena String a mostrar en el lblFechaSeleccionada, para ello primero convertir el número del mes al nombre del mes (valga la redundancia) llamando al método "obtenerFormatoMes" y le enviamos el número del mes "month" como parámetro
+    }
+
+    private String obtenerFormatoMes(int month) {
+        switch (month) { //Usamos un switch para trabajar con la variable "month", y en cada case retornará el nombre del mes dependiendo el número
+            case 1:
+                return "Enero";
+            case 2:
+                return "Febrero";
+            case 3:
+                return "Marzo";
+            case 4:
+                return "Abril";
+            case 5:
+                return "Mayo";
+            case 6:
+                return "Junio";
+            case 7:
+                return "Julio";
+            case 8:
+                return "Agosto";
+            case 9:
+                return "Septiembre";
+            case 10:
+                return "Octubre";
+            case 11:
+                return "Noviembre";
+            case 12:
+                return "Diciembre";
+            default:
+                return "Enero";
+        }
+    }
+
+    private void mostrarDatePickerAnio() {
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() { //Creamos una variable de tipo DatePickerDialog, y creamos el evento "OnDateSetListener" para que responda cuando se selecciona una fecha del AlertDialog o Popup DatePicker de sólo mes y año
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                lblFechaSeleccionada.setText(String.valueOf(year)); //Asignamos el año ya convertido a String al lblFechaSeleccionada
+            }
+        };
+
+        Calendar cal = Calendar.getInstance(); //Creamos un objeto de tipo Calendar que representa la fecha y hora actuales en el dispositivo donde se está ejecutando el código
+        int year = cal.get(Calendar.YEAR); //Obtenemos el año actual
+        int month = cal.get(Calendar.MONTH); //Obtenemos el mes actual
+        int day = cal.get(Calendar.DAY_OF_MONTH); //Obtenemos el día actual
+        int style = AlertDialog.THEME_HOLO_LIGHT; //En una variable entera guardamos el estilo que tendrá la ventana emergente
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(requireContext(), style, dateSetListener, year, month, day); //Creamos un nuevo objeto de tipo DatePickerDialog y le mandamos como parámetros al constructor, un contexto, la variable "style" que guarda el estilo, el "dateSetListener", el año, mes y día, estos últimos para que al abrir el AlertDialog, se muestre el mes actual
+        datePickerDialog.getDatePicker().findViewById(getResources().getIdentifier("day", "id", "android")).setVisibility(View.GONE); //Ocultamos el spinner de días asignando "GONE" en su visibilidad
+        datePickerDialog.getDatePicker().findViewById(getResources().getIdentifier("month", "id", "android")).setVisibility(View.GONE); //Ocultamos el spinner de meses asignando "GONE" en su visibilidad
+        datePickerDialog.show(); //Mostramos el AlertDialog o Popup DatePicker de solo mes y año
     }
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f0f3fa"
-    tools:context=".CarritoVenta">
+    tools:context=".CarritoCompra">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -59,7 +59,7 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/montserrat_bold"
                             android:gravity="center"
-                            android:text="Carrito de Venta"
+                            android:text="Carrito de Compra"
                             android:textAlignment="center"
                             android:textColor="#14213D"
                             android:textSize="25dp" />
@@ -290,10 +290,11 @@
                 android:fontFamily="@font/montserrat_bold"
                 android:gravity="center"
                 android:onClick="confirmarVenta"
-                android:text="Confirmar Venta"
+                android:text="Confirmar Compra"
                 android:textAlignment="center"
                 android:textColor="#ffffff"
-                android:textSize="22dp" />
+                android:textSize="22dp"
+                tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
     </ScrollView>

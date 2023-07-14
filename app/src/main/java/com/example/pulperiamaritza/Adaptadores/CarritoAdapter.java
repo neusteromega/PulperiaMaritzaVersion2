@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.pulperiamaritza.CarritoVenta;
+import com.example.pulperiamaritza.CarritoCompra;
 import com.example.pulperiamaritza.Modelos.CarritoItemsModel;
 import com.example.pulperiamaritza.Herramientas.ProductosTodos;
 import com.example.pulperiamaritza.R;
@@ -65,8 +65,8 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.Recycler
                             /*Intent intent = new Intent(context, CarritoVenta.class);
                             context.startActivity(intent);*/
 
-                            if (context instanceof CarritoVenta) { //Verificamos si el context es una instancia de un Activity
-                                CarritoVenta carrito = (CarritoVenta) context; //Objeto de la clase "CarritoVenta" que lo igualamos a un context que convertimos a un objeto "Activity" de la clase "CarritoVenta"
+                            if (context instanceof CarritoCompra) { //Verificamos si el context es una instancia de un Activity
+                                CarritoCompra carrito = (CarritoCompra) context; //Objeto de la clase "CarritoVenta" que lo igualamos a un context que convertimos a un objeto "Activity" de la clase "CarritoVenta"
                                 carrito.recreate(); //Llamamos al método "recreate()" que recrear el Activity
                             }
                         }
@@ -104,7 +104,7 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.Recycler
                 ProductosTodos todos = new ProductosTodos(context); //Objeto de la clase "ProductosTodos" y le mandamos un context como parámetro
                 todos.actualizarDatosCarrito(holder.tvProducto.getText().toString(), editable.toString(), String.format("%.2f", total)); //Referenciamos el método "actualizarDatosCarrito" que me actualiza los campos de cantidad y total en la tabla "CarritoTemporal" de la BDD
 
-                CarritoVenta carrito = (CarritoVenta) context; //Objeto de la clase "CarritoVenta" que lo igualamos a un context que convertimos a un objeto "Activity" de la clase "CarritoVenta"
+                CarritoCompra carrito = (CarritoCompra) context; //Objeto de la clase "CarritoVenta" que lo igualamos a un context que convertimos a un objeto "Activity" de la clase "CarritoVenta"
                 carrito.subtotalCarrito(); //Llamamos al método "subtotalCarrito" que calcula el subtotal
                 carrito.totalCarrito(); //Llamamos al método "totalCarrito" que calcula el total
             }
@@ -129,7 +129,7 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.Recycler
                 ProductosTodos todos = new ProductosTodos(context); //Objeto de la clase "ProductosTodos" y le mandamos un context como parámetro
                 todos.actualizarDatosCarrito(holder.tvProducto.getText().toString(), cantidadTxt, String.format("%.2f", total)); //Referenciamos el método "actualizarDatosCarrito" que me actualiza los campos de cantidad y total en la tabla "CarritoTemporal" de la BDD
 
-                CarritoVenta carrito = (CarritoVenta) context; //Objeto de la clase "CarritoVenta" que lo igualamos a un context que convertimos a un objeto "Activity" de la clase "CarritoVenta"
+                CarritoCompra carrito = (CarritoCompra) context; //Objeto de la clase "CarritoVenta" que lo igualamos a un context que convertimos a un objeto "Activity" de la clase "CarritoVenta"
                 carrito.subtotalCarrito(); //Llamamos al método "subtotalCarrito" que calcula el subtotal
                 carrito.totalCarrito(); //Llamamos al método "totalCarrito" que calcula el total
             }
@@ -152,7 +152,7 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.Recycler
                 ProductosTodos todos = new ProductosTodos(context); //Objeto de la clase "ProductosTodos" y le mandamos un context como parámetro
                 todos.actualizarDatosCarrito(holder.tvProducto.getText().toString(), cantidadTxt, String.format("%.2f", total)); //Referenciamos el método "actualizarDatosCarrito" que me actualiza los campos de cantidad y total en la tabla "CarritoTemporal" de la BDD
 
-                CarritoVenta carrito = (CarritoVenta) context; //Objeto de la clase "CarritoVenta" que lo igualamos a un context que convertimos a un objeto "Activity" de la clase "CarritoVenta"
+                CarritoCompra carrito = (CarritoCompra) context; //Objeto de la clase "CarritoVenta" que lo igualamos a un context que convertimos a un objeto "Activity" de la clase "CarritoVenta"
                 carrito.subtotalCarrito(); //Llamamos al método "subtotalCarrito" que calcula el subtotal
                 carrito.totalCarrito(); //Llamamos al método "totalCarrito" que calcula el total
             }

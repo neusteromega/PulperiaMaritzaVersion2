@@ -84,7 +84,7 @@ public class Productos extends AppCompatActivity implements SearchView.OnQueryTe
     }
 
     public void carritoVenta(View view) {
-        Intent pagina = new Intent(this, CarritoVenta.class);
+        Intent pagina = new Intent(this, CarritoCompra.class);
         startActivity(pagina);
     }
 

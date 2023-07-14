@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         //List<ProductoItemsModel> items = todos.obtenerProductos1();
         List<ProductoItemsModel> items2 = todos.obtenerProductosBDD();
 
-        //Llamamos al método "verificarDatos" para corroborar que esta tres tablas están vacías, si están vacías, retornará un 0 que se guardará en las siguientes tres variables enteras
+        //Llamamos al método "verificarDatos" para corroborar que estas tres tablas están vacías, si están vacías, retornará un 0 que se guardará en las siguientes tres variables enteras
         int cat = todos.verificarDatos("Categorias");
         int prv = todos.verificarDatos("Proveedores");
         int prd = todos.verificarDatos("Productos");
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, MenuPrincipal.class);
+                Intent intent = new Intent(MainActivity.this, Inicio.class);
                 startActivity(intent);
                 finish();
             }

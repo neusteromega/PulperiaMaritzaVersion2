@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.pulperiamaritza.Adaptadores.CarritoAdapter;
 import com.example.pulperiamaritza.Modelos.CarritoItemsModel;
@@ -18,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-public class CarritoVenta extends AppCompatActivity {
+public class CarritoCompra extends AppCompatActivity {
 
     private RecyclerView rvCarrito;
     private CarritoAdapter adapter;
@@ -29,7 +28,7 @@ public class CarritoVenta extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_carrito_venta);
+        setContentView(R.layout.activity_carrito_compra);
 
         lblSubtotal = (TextView) findViewById(R.id.lblSubtotalCar);
         lblBolsas = (TextView) findViewById(R.id.lblCantidadBolsas);

@@ -3,6 +3,33 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/drawable/casilla_azul_separador.xml" value="0.239" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/drawable/casilla_blanca.xml" value="0.239" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/drawable/casilla_fondo.xml" value="0.239" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/drawable/casilla_logologin.xml" value="0.239" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/drawable/casilla_logologinazul.xml" value="0.239" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/drawable/casilla_solobordes.xml" value="0.239" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/drawable/fondo_inicio.xml" value="0.239" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/activity_carrito_compra.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/activity_carrito_venta.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/activity_consultar_todo.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/activity_editar_perfil.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/activity_historial.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/activity_iniciar_sesion.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/activity_inicio.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/activity_main.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/activity_menu_principal.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/activity_perfil.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/activity_productos.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/activity_productos_detalle.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/activity_productos_editar.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/activity_registrarse.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/activity_ventas_detalle.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/fragment_historial_compras.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/fragment_historial_ventas.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/items_codigobarras.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/items_histventas.xml" value="0.259375" />
+        <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/ProgramacionMovil/PulperiaMaritza/app/src/main/res/layout/spinner_item_categorias.xml" value="0.259375" />
         <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/PulperiaMaritza/app/src/main/res/drawable/casilla_amarilla.xml" value="0.2645" />
         <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/PulperiaMaritza/app/src/main/res/drawable/casilla_amarilla_separador.xml" value="0.2645" />
         <entry key="..\:/Users/Usuario/Desktop/AplicacionesMoviles/PulperiaMaritza/app/src/main/res/drawable/casilla_azul_separador.xml" value="0.2645" />

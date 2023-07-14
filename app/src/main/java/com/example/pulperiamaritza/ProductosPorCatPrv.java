@@ -103,7 +103,7 @@ public class ProductosPorCatPrv extends AppCompatActivity implements SearchView.
     }
 
     public void carritoVenta(View view) {
-        Intent pagina = new Intent(this, CarritoVenta.class);
+        Intent pagina = new Intent(this, CarritoCompra.class);
         startActivity(pagina);
     }
 }

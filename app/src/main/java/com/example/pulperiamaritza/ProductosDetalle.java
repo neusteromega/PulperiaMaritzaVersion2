@@ -91,7 +91,7 @@ public class ProductosDetalle extends AppCompatActivity implements TextWatcher, 
     }
 
     public void carritoVenta(View view) {
-        Intent pagina = new Intent(this, CarritoVenta.class);
+        Intent pagina = new Intent(this, CarritoCompra.class);
         startActivity(pagina);
     }
 

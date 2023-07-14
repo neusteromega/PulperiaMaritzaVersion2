@@ -70,7 +70,7 @@ public class Categorias extends AppCompatActivity implements SearchView.OnQueryT
     }
 
     public void carritoVenta(View view) {
-        Intent pagina = new Intent(this, CarritoVenta.class);
+        Intent pagina = new Intent(this, CarritoCompra.class);
         startActivity(pagina);
     }
 
