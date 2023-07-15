@@ -208,6 +208,7 @@
                 android:elevation="8dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:gravity="center"
+                android:onClick="editarPerfil"
                 android:text="Editar Perfil"
                 android:textAlignment="center"
                 android:textColor="#ffffff"

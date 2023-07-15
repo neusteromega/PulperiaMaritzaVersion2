@@ -34,6 +34,7 @@ public class Registrarse extends AppCompatActivity {
     }
 
     public void registro(View view) {
+        //Creamos un objeto de la clase AdminSQLiteOpen y le mandamos los parámetros al constructor de dicha clase
         AdminSQLiteOpen admin = new AdminSQLiteOpen(this, "PulperiaMaritza", null, 1);
         SQLiteDatabase baseDatos = admin.getWritableDatabase();
 

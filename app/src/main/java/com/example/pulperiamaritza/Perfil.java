@@ -2,6 +2,7 @@ package com.example.pulperiamaritza;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -35,7 +36,7 @@ public class Perfil extends AppCompatActivity {
     }
 
     private void mostrarDatos() {
-        //Creamos un objeto de la clase AdminSQLiteOpen y le mandamos los parámetros al constructor de dicha clase.
+        //Creamos un objeto de la clase AdminSQLiteOpen y le mandamos los parámetros al constructor de dicha clase
         AdminSQLiteOpen admin = new AdminSQLiteOpen(this, "PulperiaMaritza", null, 1);
         SQLiteDatabase baseDatos = admin.getWritableDatabase();
 
@@ -82,5 +83,14 @@ public class Perfil extends AppCompatActivity {
         }
 
         cantidadClicks++; //Aquí vamos aumentando la cantidad de clicks cada vez que se entre a la función
+    }
+
+    public void editarPerfil(View view) {
+        Intent pagina = new Intent(this, EditarPerfil.class);
+
+        EditarPerfil perfil = new EditarPerfil(); //Creamos un objeto de la clase "Perfil"
+        perfil.idUsuario = idUsuario; //Enviamos el ID del usuario que inició sesión a la variable estática "idUsuario" de "EditarPerfil"
+
+        startActivity(pagina);
     }
 }
