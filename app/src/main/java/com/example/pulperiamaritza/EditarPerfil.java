@@ -15,7 +15,7 @@ import com.example.pulperiamaritza.Herramientas.AdminSQLiteOpen;
 public class EditarPerfil extends AppCompatActivity {
 
     private EditText txtNombreApellido, txtTelefono, txtCorreo, txtContra, txtConfContra;
-    public static int idUsuario;
+    public static int idUsuario; //Variable global estática que recibe el ID del usuario desde la pantalla de Perfil
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
