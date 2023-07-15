@@ -47,7 +47,7 @@ public class Registrarse extends AppCompatActivity {
 
         if (!nombreApellido.isEmpty() && !telefono.isEmpty() && !correo.isEmpty() && !contra.isEmpty() && !confContra.isEmpty()) { //Si las cajas de texto no están vacías, que entre al if
             if (confContra.contentEquals(contra)) { //Si los campos de contraseña y confirmar contraseña no coinciden, no podrá entrar al if
-                ContentValues usuario = new ContentValues();  //Creamos un contenedor que almacenará los datos a insertar en la base de datos
+                ContentValues usuario = new ContentValues(); //Creamos un contenedor que almacenará los datos a insertar en la base de datos
 
                 //Guardamos los datos en cada campo de la tabla de la base de datos
                 usuario.put("UsuNombreApellido", nombreApellido);

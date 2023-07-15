@@ -41,12 +41,14 @@ public class EditarPerfil extends AppCompatActivity {
         String contra = txtContra.getText().toString();
         String confContra = txtConfContra.getText().toString();
 
+        //Como al editar los datos del perfil, no necesariamente deben actualizarse todos a la vez, entonces, con que uno de los textboxs tenga texto, podrá entrar a este if y poder actualizar ese dato en específico
         if (!nombreApellido.isEmpty() || !telefono.isEmpty() || !correo.isEmpty() || !contra.isEmpty() || !confContra.isEmpty()) {
-            if (confContra.contentEquals(contra)) {
+            if (confContra.contentEquals(contra)) { //Si uno de esos que se quieren actualizar es la contraseña, esta debe ser confirmada en la casilla de "Confirmar Contraseña"
                 try {
-                    ContentValues usuario = new ContentValues();
-                    int cant = 0;
+                    ContentValues usuario = new ContentValues(); //Creamos un contenedor que almacenará los datos a actualizar en la base de datos
+                    int cant = 0; //Variable que nos servirá si se han actualizado los datos
 
+                    //En los siguientes cinco if, si uno o varios de sus respectivos textboxs no está vacío, entonces que ese texto se guarde en el contenedor "usuario" en el campo específico de la tabla "Usuarios" de la BDD
                     if (!nombreApellido.isEmpty()) {
                         usuario.put("UsuNombreApellido", nombreApellido);
                     }
@@ -63,10 +65,10 @@ public class EditarPerfil extends AppCompatActivity {
                         usuario.put("UsuContrasena", contra);
                     }
 
-                    if (usuario.size() > 0)
-                        cant = baseDatos.update("Usuarios", usuario, "UsuID = " + idUsuario, null);
+                    if (usuario.size() > 0) //Verificamos que si el tamaño del contenedor "usuario" es mayor que 0, significa que se quiere realizar uno o más cambios
+                        cant = baseDatos.update("Usuarios", usuario, "UsuID = " + idUsuario, null); //Realizamos la actualización de la tabla "Usuarios" utilizando en la claúsula WHERE el ID del usuario que está en la variable estática "idUsuario", si la actualización fue exitosa, la variable "cant" recibirá un 1
 
-                    baseDatos.close();
+                    baseDatos.close(); //Cerramos la conexión a la BDD
 
                     if (cant == 1) {
                         Toast.makeText(this, "DATOS ACTUALIZADOS", Toast.LENGTH_SHORT).show();
